@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/listCancelDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="17/01/2017"/>
+        <TextView
+            android:id="@+id/listCancelTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="15:30 - 16:00"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:text="room : "/>
+            
+            <TextView
+                android:id="@+id/listCancelRoom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="0802"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:text="note : "/>
+
+            <TextView
+                android:id="@+id/listCancelNote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="การเรียน Mobile"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:text="ผู้ใช้ : "/>
+
+            <TextView
+                android:id="@+id/listCancelForName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="วราภา"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:text="เบอร์ผู้ใช้ : "/>
+
+            <TextView
+                android:id="@+id/listCancelForPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="------"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:text="ผู้จอง : "/>
+
+            <TextView
+                android:id="@+id/listCancelUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="------"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:text="เบอร์ผู้จอง : "/>
+
+            <TextView
+                android:id="@+id/listCancelUserPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="------"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

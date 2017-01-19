@@ -1,12 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.myapplication.CancleDetailActivity">
 
-</RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ท่านต้องการยกเลิกการจองห้องประชุมสำหรับ"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="date : "/>
+
+        <TextView
+            android:id="@+id/cancelDetailDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="17/01/2017"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="time : "/>
+
+        <TextView
+            android:id="@+id/cancelDetailTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="15:30 - 16:00"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="room : "/>
+
+        <TextView
+            android:id="@+id/cancelDetailRoom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="0802"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="note : "/>
+
+        <TextView
+            android:id="@+id/cancelDetailNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="การเรียน Mobile"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="ผู้ใช้ : "/>
+
+        <TextView
+            android:id="@+id/cancelDetailForName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="วราภา"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="เบอร์ผู้ใช้ : "/>
+
+        <TextView
+            android:id="@+id/cancelDetailForPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="------"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="ผู้จอง : "/>
+
+        <TextView
+            android:id="@+id/cancelDetailUserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="------"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="เบอร์ผู้จอง : "/>
+
+        <TextView
+            android:id="@+id/cancelDetailUserPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="------"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/cancelDetailConfirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Confirm"/>
+</LinearLayout>
