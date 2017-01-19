@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.myapplication.model.LoginRes;
@@ -20,7 +21,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    Button btnReserve;
+    Button btnCancel;
+    Button btnLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +37,37 @@ public class MainActivity extends AppCompatActivity {
             setContentView(R.layout.activity_main);
         } else {
             setContentView(R.layout.activity_centerpoints);
+        }
+
+        btnReserve = (Button) findViewById(R.id.reserveButton);
+        btnReserve.setOnClickListener(this);
+        btnCancel = (Button) findViewById(R.id.cancelReserveButton);
+        btnCancel.setOnClickListener(this);
+        btnLogout = (Button) findViewById(R.id.logoutButton);
+        btnLogout.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v == btnReserve){
+            Intent intent = new Intent(MainActivity.this,ReserveActivity.class);
+            startActivity(intent);
+            Log.i("nu","111");
+        }
+        if (v == btnCancel){
+            Intent intent = new Intent(MainActivity.this,CancelActivity.class);
+            intent.putExtra("name3","xxx");
+            intent.putExtra("name4","yyy");
+            startActivity(intent);
+            Log.i("nu","222");
+        }
+        if (v == btnLogout){
+            TokenUtil.saveToken("", getApplicationContext());
+            TokenUtil.saveUser("", getApplicationContext());
+            Toast.makeText(getApplicationContext(), "Logout Done", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(MainActivity.this,MainActivity.class);
+            startActivity(intent);
+            Log.i("nu","333");
         }
     }
 
@@ -56,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-	
+
 	private String callLogin(String user, String password){
         try {
             DownloadTask task = new DownloadTask();
