@@ -22,7 +22,10 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,8 +43,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void doLogin(View view){
 
-        String user = "Android30";  // test
-        String pass = "66y41168j";  // test
+        String user = "Android4";  // test
+        String pass = "sdf3TTH23";  // test
 
         String loginResult = callLogin(user ,pass);
         System.out.println("loginResult = "+loginResult);
@@ -69,9 +72,12 @@ public class MainActivity extends AppCompatActivity {
         try {
             DownloadTask task = new DownloadTask();
             task.setUrl("http://10.215.101.76:5000/user/login");
-            task.setJson(bowlingJson(user, password));
-            String result = task.execute().get();
-            return result;
+            Map<String, String> login = new HashMap<>();
+            login.put("token", "");
+            login.put("name", user);
+            login.put("pass", password);
+            task.setJson(makeJson(login));
+            return task.execute().get();
         } catch (InterruptedException e){
             e.printStackTrace();
             return null;
@@ -89,4 +95,15 @@ public class MainActivity extends AppCompatActivity {
                 + "}";
     }
 
+    public String makeJson(Map<String,String> m) {
+        Iterator<Map.Entry<String, String>> it = m.entrySet().iterator();
+        String rtn = "{";
+        while (it.hasNext()) {
+            Map.Entry<String, String> pair =  it.next();
+            rtn += String.format("'%s': '%s', ", pair.getKey(), pair.getValue());
+        }
+        rtn += "}";
+        Log.i("bui", rtn);
+        return rtn;
+    }
 }
