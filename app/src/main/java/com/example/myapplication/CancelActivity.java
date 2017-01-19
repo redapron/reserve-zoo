@@ -5,15 +5,26 @@ import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
+import com.example.myapplication.model.LoginRes;
+import com.example.myapplication.model.SearchCancelResult;
 import com.example.myapplication.util.StringUtil;
+import com.example.myapplication.util.TokenUtil;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public class CancelActivity extends AppCompatActivity {
 
@@ -82,4 +93,58 @@ public class CancelActivity extends AppCompatActivity {
 
         }
     };
+
+    public void doSearchCancel(View view) {
+        String rtn = textViewDateCancel.getText().toString();
+
+        //Toast.makeText(getApplicationContext(), rtn, Toast.LENGTH_SHORT).show();
+        Log.i("bui", rtn);
+
+        Map<String, String> m = new HashMap<>();
+        m.put("token", TokenUtil.getToken(getApplicationContext()));
+        m.put("user", "Android4");
+        m.put("from", "20170120 090000");
+        m.put("to", "20170120 103000");
+
+        callSearch(m);
+    }
+
+    public String makeJson(Map<String,String> m) {
+        Iterator<Map.Entry<String, String>> it = m.entrySet().iterator();
+        String rtn = "{";
+        while (it.hasNext()) {
+            Map.Entry<String, String> pair =  it.next();
+            rtn += String.format("'%s': '%s', ", pair.getKey(), pair.getValue());
+        }
+        rtn += "}";
+        Log.i("bui", rtn);
+        return rtn;
+    }
+
+    private String callSearch(Map<String, String> m){
+        try {
+            DownloadTask task = new DownloadTask();
+            task.setUrl("http://10.215.101.76:5000/slot/view");
+            task.setJson(makeJson(m));
+            String result = task.execute().get();
+
+
+            Gson gson = new Gson();
+            Type founderType = new TypeToken<SearchCancelResult>(){}.getType();
+            SearchCancelResult rs = gson.fromJson(result, founderType);
+
+            TokenUtil.saveToken(rs.getToken(), getApplicationContext());
+
+            Toast.makeText(getApplicationContext(), rs.getToken(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
+
+            return result;
+        } catch (InterruptedException e){
+            e.printStackTrace();
+            return null;
+        } catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

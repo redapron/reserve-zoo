@@ -22,7 +22,9 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,8 +42,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void doLogin(View view){
 
-        String user = "Android3";  // test
-        String pass = "66y41168j";  // test
+        String user = "Android4";  // test
+        String pass = "sdf3TTH23";  // test
 
         String loginResult = callLogin(user ,pass);
         System.out.println("loginResult = "+loginResult);
@@ -88,5 +90,4 @@ public class MainActivity extends AppCompatActivity {
                 + "'pass':'" + password + "',"
                 + "}";
     }
-
 }
