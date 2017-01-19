@@ -4,13 +4,15 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
+
+import com.example.myapplication.util.StringUtil;
 
 import java.util.Calendar;
 
@@ -58,8 +60,8 @@ public class ReserveActivity extends AppCompatActivity {
         month = calendar.get(Calendar.MONTH);
         year = calendar.get(Calendar.YEAR);
         textViewDateMeeting = (TextView) findViewById(R.id.dateMeeting);
-        textViewDateMeeting.setText(new StringBuilder().append(pad(day))
-                .append("/").append(pad(month+1)).append("/").append(year)
+        textViewDateMeeting.setText(new StringBuilder().append(StringUtil.pad(day))
+                .append("/").append(StringUtil.pad(month+1)).append("/").append(year)
                 .append(" "));
 
         buttonTimeStart.setOnClickListener(new View.OnClickListener() {
@@ -114,7 +116,7 @@ public class ReserveActivity extends AppCompatActivity {
             minuteStart = selectedMinute;
 
             textViewStartTime = (TextView) findViewById(R.id.startTime);
-            textViewStartTime.setText(new StringBuilder().append(pad(hourStrat)).append(":").append(pad(minuteStart)));
+            textViewStartTime.setText(new StringBuilder().append(StringUtil.pad(hourStrat)).append(":").append(StringUtil.pad(minuteStart)));
 
         }
     };
@@ -126,7 +128,7 @@ public class ReserveActivity extends AppCompatActivity {
             minuteEnd = selectedMinute;
 
             textViewEndTime = (TextView) findViewById(R.id.endTime);
-            textViewEndTime.setText(new StringBuilder().append(pad(hourEnd)).append(":").append(pad(minuteEnd)));
+            textViewEndTime.setText(new StringBuilder().append(StringUtil.pad(hourEnd)).append(":").append(StringUtil.pad(minuteEnd)));
 
         }
     };
@@ -141,27 +143,21 @@ public class ReserveActivity extends AppCompatActivity {
             day = selectedDay;
 
             textViewDateMeeting = (TextView) findViewById(R.id.dateMeeting);
-            textViewDateMeeting.setText(new StringBuilder().append(pad(day))
-                    .append("/").append(pad(month+1)).append("/").append(year)
+            textViewDateMeeting.setText(new StringBuilder().append(StringUtil.pad(day))
+                    .append("/").append(StringUtil.pad(month+1)).append("/").append(year)
                     .append(" "));
 
         }
     };
 
-    private static String pad(int c) {
-        if (c >= 10)
-            return String.valueOf(c);
-        else
-            return "0" + String.valueOf(c);
-    }
 
     public void searchAction(View view){
         Intent intent = new Intent(this,SearchResultActivity.class);
-        intent.putExtra("name","xxx");
-        intent.putExtra("name2","yyy");
+        intent.putExtra("date",textViewDateMeeting.getText());
+        intent.putExtra("timeStart",textViewStartTime.getText());
+        intent.putExtra("timeEnd",textViewEndTime.getText());
         startActivity(intent);
     }
-
 
 
 }
