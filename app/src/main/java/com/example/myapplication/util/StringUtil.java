@@ -1,5 +1,7 @@
 package com.example.myapplication.util;
 
+import android.util.Log;
+
 public class StringUtil {
     public static String pad(int c) {
         if (c >= 10)
@@ -13,6 +15,6 @@ public class StringUtil {
         if (ds.length != 3) {
             return "";
         }
-        return String.format("%s%s%s", ds[2], ds[1], ds[0]);
+        return String.format("%s%s%s", ds[2].trim(), ds[1], ds[0]);
     }
 }

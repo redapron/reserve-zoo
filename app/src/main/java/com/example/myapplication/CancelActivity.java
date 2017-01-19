@@ -98,7 +98,11 @@ public class CancelActivity extends AppCompatActivity {
         String rtn = textViewDateCancel.getText().toString();
 
         //Toast.makeText(getApplicationContext(), rtn, Toast.LENGTH_SHORT).show();
-        Log.i("bui", StringUtil.formatDate(rtn));
+        Log.i("bui", "format" + StringUtil.formatDate(rtn));
+        Log.i("bui", "rtn" + rtn);
+
+        Toast.makeText(getApplicationContext(), rtn, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), StringUtil.formatDate(rtn), Toast.LENGTH_SHORT).show();
 
         Map<String, String> m = new HashMap<>();
         m.put("token", TokenUtil.getToken(getApplicationContext()));
@@ -134,9 +138,6 @@ public class CancelActivity extends AppCompatActivity {
             SearchCancelResult rs = gson.fromJson(result, founderType);
 
             TokenUtil.saveToken(rs.getToken(), getApplicationContext());
-
-            Toast.makeText(getApplicationContext(), rs.getSlots(), Toast.LENGTH_SHORT).show();
-            Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
 
             return result;
         } catch (InterruptedException e){
