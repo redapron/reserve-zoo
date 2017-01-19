@@ -29,9 +29,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        TokenUtil.saveToken("", getApplicationContext());
-        String ccc = TokenUtil.getToken(getApplicationContext());
-        if(ccc.isEmpty()){
+        //TokenUtil.saveToken("", getApplicationContext());
+        String lastToken = TokenUtil.getToken(getApplicationContext());
+        if(lastToken.isEmpty()){
             setContentView(R.layout.activity_main);
         } else {
             setContentView(R.layout.activity_centerpoints);
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void doLogin(View view){
 
-        String user = "Android30";  // test
+        String user = "Android3";  // test
         String pass = "66y41168j";  // test
 
         String loginResult = callLogin(user ,pass);
@@ -52,17 +52,11 @@ public class MainActivity extends AppCompatActivity {
         if(loginRes != null && loginRes.getToken()!= null){
             TokenUtil.saveToken(loginRes.getToken(),getApplicationContext());
             Intent intent = new Intent(this,CenterpointActivity.class);
-            intent.putExtra("token",loginRes.getToken());
             startActivity(intent);
         } else {
             Toast.makeText(getApplicationContext(), "Invalid Username/Password", Toast.LENGTH_SHORT).show();
         }
 
-
-//        Intent intent = new Intent(this,CenterpointActivity.class);
-//        intent.putExtra("name3","xxx");
-//        intent.putExtra("name4","yyy");
-//        startActivity(intent);
     }
 	
 	private String callLogin(String user, String password){
