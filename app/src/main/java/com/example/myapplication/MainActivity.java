@@ -45,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
         //setContentView(R.layout.activity_centerpoint);
         //setContentView(R.layout.activity_reserve_1);
         //addListenerOnButton();
+		
+		Log.i("testxxx",callLogin());
     }
 
 //    public void addListenerOnButton() {
@@ -169,6 +171,30 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("name3","xxx");
         intent.putExtra("name4","yyy");
         startActivity(intent);
+    }
+	
+	private String callLogin(){
+        try{
+            DownloadTask task = new DownloadTask();
+            task.setUrl("http://10.215.101.76:5000/user/login");
+            task.setJson(bowlingJson("Android3","66y41168j"));
+            String result = task.execute().get();
+            return result;
+        }catch (InterruptedException e){
+            e.printStackTrace();
+            return null;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+	
+	public String bowlingJson(String name, String password) {
+        return "{"
+                + "'token' : '' ,"
+                + "'name':'" + name + "',"
+                + "'pass':'" + password + "',"
+                + "}";
     }
 
 }
