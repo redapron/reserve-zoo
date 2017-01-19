@@ -19,10 +19,15 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true">
         <TextView
-            android:id="@+id/textViewSearchResult"
+            android:id="@+id/textViewDateHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Header XXX"/>
+            android:text="DATE"/>
+        <TextView
+            android:id="@+id/textViewTimeHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TIME"/>
         <ListView
             android:id="@+id/listViewSearchResult"
             android:layout_width="wrap_content"
