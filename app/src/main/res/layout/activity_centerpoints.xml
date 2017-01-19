@@ -60,8 +60,8 @@
                 android:text="Logout"
                 android:height="140sp"
                 android:width="140sp"
-                android:textColor="@color/colorPrimary"
-                android:onClick="doLogout"/>
+                android:onClick="doLogout"
+                android:textColor="@color/colorPrimary" />
 
 
         </LinearLayout>
