@@ -39,6 +39,7 @@
                 android:text="Cancel"
                 android:height="140sp"
                 android:width="140sp"
+                android:onClick="cancelAction"
                 android:textColor="@color/colorPrimary"/>
         </LinearLayout>
         <LinearLayout
