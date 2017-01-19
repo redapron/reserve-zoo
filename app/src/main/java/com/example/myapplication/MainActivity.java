@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        TokenUtil.saveToken("", getApplicationContext());
+        //TokenUtil.saveToken("", getApplicationContext()); // test
         String lastToken = TokenUtil.getToken(getApplicationContext());
         System.out.println("lastToken = "+lastToken);
         if(lastToken.isEmpty()){
@@ -73,4 +73,10 @@ public class MainActivity extends AppCompatActivity {
                 + "}";
     }
 
+    public void doLogout(View view){
+        TokenUtil.saveToken("", getApplicationContext());
+        Toast.makeText(getApplicationContext(), "Logout Done", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
+    }
 }
