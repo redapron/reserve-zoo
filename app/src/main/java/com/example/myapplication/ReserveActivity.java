@@ -12,8 +12,12 @@ import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import com.example.myapplication.model.LoginRes;
 import com.example.myapplication.util.StringUtil;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.Calendar;
 
 public class ReserveActivity extends AppCompatActivity {
@@ -92,7 +96,6 @@ public class ReserveActivity extends AppCompatActivity {
 //            }
 //        });
 
-
     }
 
     @Override
@@ -152,12 +155,43 @@ public class ReserveActivity extends AppCompatActivity {
 
 
     public void searchAction(View view){
-        Intent intent = new Intent(this,SearchResultActivity.class);
-        intent.putExtra("date",textViewDateMeeting.getText());
-        intent.putExtra("timeStart",textViewStartTime.getText());
-        intent.putExtra("timeEnd",textViewEndTime.getText());
-        startActivity(intent);
+
+
+
+
+//        Gson gson = new Gson();
+//        Type founderType = new TypeToken<LoginRes>(){}.getType();
+//        LoginRes loginRes = gson.fromJson(loginResult, founderType);
+
+//        Intent intent = new Intent(this,SearchResultActivity.class);
+//        intent.putExtra("date",textViewDateMeeting.getText());
+//        intent.putExtra("timeStart",textViewStartTime.getText());
+//        intent.putExtra("timeEnd",textViewEndTime.getText());
+//        startActivity(intent);
     }
 
+    private String callSlotAvailable(String user, String password){
+        try {
+            DownloadTask task = new DownloadTask();
+            task.setUrl("http://10.215.101.76:5000/slot/view");
+            task.setJson(bowlingJson(user, password));
+            String result = task.execute().get();
+            return result;
+        } catch (InterruptedException e){
+            e.printStackTrace();
+            return null;
+        } catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public String bowlingJson(String name, String password) {
+        return "{"
+                + "'token' : '' ,"
+                + "'name':'" + name + "',"
+                + "'pass':'" + password + "',"
+                + "}";
+    }
 
 }
