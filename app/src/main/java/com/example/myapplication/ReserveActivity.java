@@ -13,7 +13,9 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 
 import com.example.myapplication.model.LoginRes;
+import com.example.myapplication.model.RoomReq;
 import com.example.myapplication.util.StringUtil;
+import com.example.myapplication.util.TokenUtil;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -156,7 +158,13 @@ public class ReserveActivity extends AppCompatActivity {
 
     public void searchAction(View view){
 
+        RoomReq roomReq = new RoomReq();
+        roomReq.setToken(TokenUtil.getToken(getApplicationContext()));
+        roomReq.setUser(TokenUtil.getUser(getApplicationContext()));
 
+        Gson gson = new Gson();
+        String json = gson.toJson(roomReq);
+        System.out.println("json = "+json);
 
 
 //        Gson gson = new Gson();
@@ -170,20 +178,21 @@ public class ReserveActivity extends AppCompatActivity {
 //        startActivity(intent);
     }
 
-    private String callSlotAvailable(String user, String password){
-        try {
-            DownloadTask task = new DownloadTask();
-            task.setUrl("http://10.215.101.76:5000/slot/view");
-            task.setJson(bowlingJson(user, password));
-            String result = task.execute().get();
-            return result;
-        } catch (InterruptedException e){
-            e.printStackTrace();
+
+    private String callSlotAvailable(RoomReq roomReq) {
+//        try {
+//            DownloadTask task = new DownloadTask();
+//            task.setUrl("http://10.215.101.76:5000/slot/view");
+//            task.setJson(bowlingJson(user, password));
+//            String result = task.execute().get();
+//            return result;
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//            return null;
+//        } catch (Exception e) {
+//            e.printStackTrace();
             return null;
-        } catch (Exception e){
-            e.printStackTrace();
-            return null;
-        }
+//        }
     }
 
     public String bowlingJson(String name, String password) {
