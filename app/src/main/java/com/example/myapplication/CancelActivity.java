@@ -98,7 +98,7 @@ public class CancelActivity extends AppCompatActivity {
         String rtn = textViewDateCancel.getText().toString();
 
         //Toast.makeText(getApplicationContext(), rtn, Toast.LENGTH_SHORT).show();
-        Log.i("bui", rtn);
+        Log.i("bui", StringUtil.formatDate(rtn));
 
         Map<String, String> m = new HashMap<>();
         m.put("token", TokenUtil.getToken(getApplicationContext()));
@@ -135,7 +135,7 @@ public class CancelActivity extends AppCompatActivity {
 
             TokenUtil.saveToken(rs.getToken(), getApplicationContext());
 
-            Toast.makeText(getApplicationContext(), rs.getToken(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), rs.getSlots(), Toast.LENGTH_SHORT).show();
             Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
 
             return result;

@@ -8,5 +8,11 @@ public class StringUtil {
             return "0" + String.valueOf(c);
     }
 
-//    public static String reformatDate()
+    public static String formatDate(String d) {
+        String[] ds = d.split("/");
+        if (ds.length != 3) {
+            return "";
+        }
+        return String.format("%s%s%s", ds[2], ds[1], ds[0]);
+    }
 }

@@ -8,7 +8,7 @@ public class SearchCancelResult {
     private String Token;
     private String Error;
     private int State;
-    private Slots[] Slots;
+    private String Slots;
 
     public String getToken() {
         return Token;
@@ -34,11 +34,11 @@ public class SearchCancelResult {
         State = state;
     }
 
-    public Slots[] getSlots() {
+    public String getSlots() {
         return Slots;
     }
 
-    public void setSlots(Slots[] slots) {
+    public void setSlots(String slots) {
         Slots = slots;
     }
 }
