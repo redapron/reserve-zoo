@@ -16,6 +16,13 @@ public class CenterpointActivity extends AppCompatActivity {
     public void reserveAction(View view){
         Intent intent = new Intent(this,ReserveActivity.class);
         intent.putExtra("name3","xxx");
+        intent.putExtra("name4", "yyy");
+        startActivity(intent);
+    }
+
+    public void cancelAction(View view){
+        Intent intent = new Intent(this,CancelActivity.class);
+        intent.putExtra("name3","xxx");
         intent.putExtra("name4","yyy");
         startActivity(intent);
     }

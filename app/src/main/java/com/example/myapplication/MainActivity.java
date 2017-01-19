@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void doLogin(View view){
 
-        String user = "Android30";  // test
+        String user = "Android3";  // test
         String pass = "66y41168j";  // test
 
         String loginResult = callLogin(user ,pass);
