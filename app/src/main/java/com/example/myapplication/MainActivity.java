@@ -37,14 +37,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             setContentView(R.layout.activity_main);
         } else {
             setContentView(R.layout.activity_centerpoints);
+            btnReserve = (Button) findViewById(R.id.reserveButton);
+            btnReserve.setOnClickListener(this);
+            btnCancel = (Button) findViewById(R.id.cancelReserveButton);
+            btnCancel.setOnClickListener(this);
+            btnLogout = (Button) findViewById(R.id.logoutButton);
+            btnLogout.setOnClickListener(this);
         }
 
-        btnReserve = (Button) findViewById(R.id.reserveButton);
-        btnReserve.setOnClickListener(this);
-        btnCancel = (Button) findViewById(R.id.cancelReserveButton);
-        btnCancel.setOnClickListener(this);
-        btnLogout = (Button) findViewById(R.id.logoutButton);
-        btnLogout.setOnClickListener(this);
     }
 
     @Override

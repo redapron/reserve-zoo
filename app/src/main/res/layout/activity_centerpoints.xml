@@ -30,6 +30,7 @@
                 android:text="Reserve"
                 android:height="140sp"
                 android:width="140sp"
+                android:onClick="reserveAction"
                 android:textColor="@color/colorPrimary"/>
             <Button
                 android:id="@+id/cancelReserveButton"
@@ -38,6 +39,7 @@
                 android:text="Cancel"
                 android:height="140sp"
                 android:width="140sp"
+                android:onClick="cancelAction"
                 android:textColor="@color/colorPrimary"/>
         </LinearLayout>
         <LinearLayout
@@ -59,6 +61,7 @@
                 android:text="Logout"
                 android:height="140sp"
                 android:width="140sp"
+                android:onClick="doLogout"
                 android:textColor="@color/colorPrimary" />
 
 
