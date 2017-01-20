@@ -11,7 +11,6 @@ public class LoginRes {
     private String Token;
     private String Error;
     private int State;
-    private RoomRes[] Slots;
 
     public String getToken() {
         return Token;
@@ -37,11 +36,4 @@ public class LoginRes {
         State = state;
     }
 
-    public RoomRes[] getSlots() {
-        return Slots;
-    }
-
-    public void setSlots(RoomRes[] slots) {
-        Slots = slots;
-    }
 }
