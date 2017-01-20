@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.myapplication.CancleDetailActivity">
+    tools:context="com.example.myapplication.CancelDetailActivity">
 
 
     <TextView
@@ -148,6 +148,6 @@
         android:id="@+id/cancelDetailConfirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="doCancleConfirm"
+        android:onClick="doCancelConfirm"
         android:text="Confirm"/>
 </LinearLayout>

@@ -32,7 +32,7 @@ public class CancelListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Room selItem = roomList.get(position);
-                Intent intent = new Intent(CancelListActivity.this,CancleDetailActivity.class);
+                Intent intent = new Intent(CancelListActivity.this,CancelDetailActivity.class);
                 roomInfo = roomList.get(position);
                 intent.putExtra("roomInfo",roomInfo);
                 startActivity(intent);
