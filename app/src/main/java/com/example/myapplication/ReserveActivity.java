@@ -14,7 +14,9 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.myapplication.model.AppContext;
 import com.example.myapplication.model.LoginRes;
+import com.example.myapplication.model.Room;
 import com.example.myapplication.model.RoomReq;
 import com.example.myapplication.model.RoomRes;
 import com.example.myapplication.util.StringUtil;
@@ -25,7 +27,9 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class ReserveActivity extends AppCompatActivity {
 
@@ -227,8 +231,8 @@ public class ReserveActivity extends AppCompatActivity {
         System.out.println("res.getError() = "+res.getError());
         TokenUtil.saveToken(res.getToken(), getApplicationContext());
 
-        System.out.println("res.getSlots() = "+res.getSlots().length);
-        System.out.println("res.getSlots() = "+res.getSlots()[0].getRoom());
+        //System.out.println("res.getSlots() = "+res.getSlots().length);
+        //System.out.println("res.getSlots() = "+res.getSlots()[0].getRoom());
 //        System.out.println("res.getToken() = "+res.getSlots()[0].getSizemax());
 //        System.out.println("res.getToken() = "+res.getSlots()[0].isHasprojector());
 
@@ -256,7 +260,27 @@ public class ReserveActivity extends AppCompatActivity {
 //        intent.putExtra("timeStart",textViewStartTime.getText());
 //        intent.putExtra("timeEnd",textViewEndTime.getText());
 //        startActivity(intent);
-        Intent intent = new Intent(this,ReserveListActivity.class);
+        ArrayList<Room> roomList = new ArrayList<Room>();
+        if(res.getSlots()!= null){
+            Room room = null;
+
+            for(Room item :res.getSlots()){
+                room = new Room();
+                room.setRoom(item.getRoom());
+                room.setSizeMax(item.getSizeMax());
+                room.setHasProjector(item.isHasProjector());
+                room.setHasVC(item.isHasVC());
+                room.setHasWB(item.isHasWB());
+                roomList.add(room);
+            }
+        }
+
+        AppContext.getInstance().setRoomList(roomList);
+
+        Intent intent = new Intent(ReserveActivity.this,ReserveListActivity.class);
+        //Bundle bundle = new Bundle();
+        //bundle.putSerializable("xx",roomList);
+        //intent.putExtras(bundle);
         startActivity(intent);
     }
 

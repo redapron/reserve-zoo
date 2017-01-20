@@ -51,7 +51,7 @@ public class ReserveAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
         }
         viewHolder.item_text1.setText(items.get(position).getRoom());
-        viewHolder.item_text2.setText(items.get(position).getSizez());
+        viewHolder.item_text2.setText(items.get(position).getSizeMax());
         return convertView;
     }
 
