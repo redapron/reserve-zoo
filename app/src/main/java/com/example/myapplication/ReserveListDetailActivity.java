@@ -60,8 +60,8 @@ public class ReserveListDetailActivity extends AppCompatActivity {
         makeReq.setFrom(StringUtil.formatDatTime(reserveInfo.getDateMeeting(),reserveInfo.getTimeStart()));
         makeReq.setTo(StringUtil.formatDatTime(reserveInfo.getDateMeeting(),reserveInfo.getTimeEnd()));
 
-        makeReq.setFrom("20170122 130000"); // test
-        makeReq.setTo("20170122 140000"); // test
+        //makeReq.setFrom("20170122 130000"); // test
+        //makeReq.setTo("20170122 140000"); // test
 
         Gson gson = new Gson();
         String json = gson.toJson(makeReq);
