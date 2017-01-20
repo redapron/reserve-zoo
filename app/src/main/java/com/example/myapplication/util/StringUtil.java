@@ -20,7 +20,8 @@ public class StringUtil {
 
     public static String formatDatTime(String ddMMyyyy, String hhmm){
         String[] ddd  = ddMMyyyy.split("[/]");
-        String dd = ddd[2].trim()+ddd[1]+ddd[0]+" "+hhmm+"00";
+        String[] eee  = hhmm.split("[:]");
+        String dd = ddd[2].trim()+ddd[1]+ddd[0]+" "+eee[0]+eee[1]+"00";
         return dd;
     }
 
