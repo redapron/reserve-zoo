@@ -6,18 +6,18 @@ package com.example.myapplication.model;
 
 public class Room {
 
-    private String roomname;
+    private String room;
     private int sizemax;
     private boolean hasprojector;
     private boolean hasvc;
     private boolean haswb;
 
-    public String getRoomname() {
-        return roomname;
+    public String getRoom() {
+        return room;
     }
 
-    public void setRoomname(String roomname) {
-        this.roomname = roomname;
+    public void setRoom(String room) {
+        this.room = room;
     }
 
     public int getSizemax() {
