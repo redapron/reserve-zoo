@@ -24,7 +24,7 @@
         <activity android:name=".ReserveActivity" />
         <activity android:name=".CancelActivity" />
         <activity android:name=".CancelListActivity" />
-        <activity android:name=".CancleDetailActivity" />
+        <activity android:name=".CancelDetailActivity" />
         <activity android:name=".ReserveListActivity" />
         <activity android:name=".ReserveListDetailActivity"></activity>
     </application>
