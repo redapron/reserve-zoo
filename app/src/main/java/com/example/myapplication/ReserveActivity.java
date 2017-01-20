@@ -10,13 +10,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.example.myapplication.model.LoginRes;
-import com.example.myapplication.model.Room;
 import com.example.myapplication.model.RoomReq;
 import com.example.myapplication.model.RoomRes;
 import com.example.myapplication.util.StringUtil;
@@ -27,7 +25,6 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.Calendar;
 
 public class ReserveActivity extends AppCompatActivity {
@@ -226,16 +223,12 @@ public class ReserveActivity extends AppCompatActivity {
         //RoomRes res = gson.fromJson(availableRoomLower, RoomRes.class);// Convert JSON String to car object
         RoomRes res = gson.fromJson(availableRoom, RoomRes.class);// Convert JSON String to car object
         System.out.println("res.getToken() = "+res.getToken());
-<<<<<<< HEAD
-        //TokenUtil.saveToken(res.getToken(), getApplicationContext());
-=======
         System.out.println("res.getState() = "+res.getState());
         System.out.println("res.getError() = "+res.getError());
         TokenUtil.saveToken(res.getToken(), getApplicationContext());
->>>>>>> 5a20b2e06628c9c9ce618164ce79f5d67393560b
 
         System.out.println("res.getSlots() = "+res.getSlots().length);
-        System.out.println("res.getRoom() = "+res.getSlots()[0].getRoom());
+        System.out.println("res.getSlots() = "+res.getSlots()[0].getRoom());
 //        System.out.println("res.getToken() = "+res.getSlots()[0].getSizemax());
 //        System.out.println("res.getToken() = "+res.getSlots()[0].isHasprojector());
 
@@ -263,7 +256,6 @@ public class ReserveActivity extends AppCompatActivity {
 //        intent.putExtra("timeStart",textViewStartTime.getText());
 //        intent.putExtra("timeEnd",textViewEndTime.getText());
 //        startActivity(intent);
-
         Intent intent = new Intent(this,ReserveListActivity.class);
         startActivity(intent);
     }
