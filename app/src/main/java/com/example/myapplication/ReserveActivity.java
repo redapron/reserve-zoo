@@ -10,11 +10,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.example.myapplication.model.LoginRes;
+import com.example.myapplication.model.Room;
 import com.example.myapplication.model.RoomReq;
 import com.example.myapplication.model.RoomRes;
 import com.example.myapplication.util.StringUtil;
@@ -25,6 +27,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class ReserveActivity extends AppCompatActivity {
@@ -211,7 +214,7 @@ public class ReserveActivity extends AppCompatActivity {
 
         RoomRes res = gson.fromJson(availableRoomLower, RoomRes.class);// Convert JSON String to car object
         System.out.println("res.getToken() = "+res.getToken());
-        TokenUtil.saveToken(res.getToken(), getApplicationContext());
+        //TokenUtil.saveToken(res.getToken(), getApplicationContext());
 
 //        ObjectMapper mapper = new ObjectMapper();
 //        try {
@@ -237,6 +240,9 @@ public class ReserveActivity extends AppCompatActivity {
 //        intent.putExtra("timeStart",textViewStartTime.getText());
 //        intent.putExtra("timeEnd",textViewEndTime.getText());
 //        startActivity(intent);
+
+        Intent intent = new Intent(this,ReserveListActivity.class);
+        startActivity(intent);
     }
 
 

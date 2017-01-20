@@ -7,6 +7,7 @@ package com.example.myapplication.model;
 public class Room {
 
     private String room;
+    private String sizez;
     private int sizemax;
     private boolean hasprojector;
     private boolean hasvc;
@@ -50,5 +51,13 @@ public class Room {
 
     public void setHaswb(boolean haswb) {
         this.haswb = haswb;
+    }
+
+    public String getSizez() {
+        return sizez;
+    }
+
+    public void setSizez(String sizez) {
+        this.sizez = sizez;
     }
 }
