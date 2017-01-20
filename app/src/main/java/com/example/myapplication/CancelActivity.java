@@ -165,9 +165,8 @@ public class CancelActivity extends AppCompatActivity {
 
         ReserveInfo info = new ReserveInfo();
 
-        Intent intent = new Intent(CancelActivity.this,ReserveListActivity.class);
+        Intent intent = new Intent(CancelActivity.this,CancelListActivity.class);
         intent.putExtra("roomList",roomList);
-        intent.putExtra("reserveInfo",info);
         startActivity(intent);
 
     }
