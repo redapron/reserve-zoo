@@ -154,6 +154,7 @@
                 android:layout_height="wrap_content"
                 android:text="*Topic: "/>
             <EditText
+                android:id="@+id/topic"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"/>
@@ -168,6 +169,7 @@
                 android:layout_height="wrap_content"
                 android:text="*User id for meeting: "/>
             <EditText
+                android:id="@+id/userIdMeeting"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"/>
@@ -196,12 +198,13 @@
                 android:layout_height="wrap_content"
                 android:text="Phone of user for meeting: "/>
             <EditText
+                android:id="@+id/userPhoneMeeting"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="phone"
                 android:hint="008-XXXX"/>
         </LinearLayout>
-        <LinearLayout
+        <!--LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -228,7 +231,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="008-XXXX"/>
-        </LinearLayout>
+        </LinearLayout-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
