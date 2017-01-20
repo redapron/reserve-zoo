@@ -15,6 +15,160 @@ public class Room implements Serializable{
     private boolean HasVC;
     private boolean HasWB;
 
+    private String Place;
+    private int Floor;
+    private int Number;
+    private String From;
+    private String To;
+    private String User;
+    private String UserEN;
+    private String UserTH;
+    private String Phone;
+    private String Email;
+    private String ForUser;
+    private String ForUserEN;
+    private String ForUserTH;
+    private String ForPhone;
+    private String ForEmail;
+    private String Note;
+    private String When;
+
+    public String getPlace() {
+        return Place;
+    }
+
+    public void setPlace(String place) {
+        Place = place;
+    }
+
+    public int getFloor() {
+        return Floor;
+    }
+
+    public void setFloor(int floor) {
+        Floor = floor;
+    }
+
+    public int getNumber() {
+        return Number;
+    }
+
+    public void setNumber(int number) {
+        Number = number;
+    }
+
+    public String getFrom() {
+        return From;
+    }
+
+    public void setFrom(String from) {
+        From = from;
+    }
+
+    public String getTo() {
+        return To;
+    }
+
+    public void setTo(String to) {
+        To = to;
+    }
+
+    public String getUser() {
+        return User;
+    }
+
+    public void setUser(String user) {
+        User = user;
+    }
+
+    public String getUserEN() {
+        return UserEN;
+    }
+
+    public void setUserEN(String userEN) {
+        UserEN = userEN;
+    }
+
+    public String getUserTH() {
+        return UserTH;
+    }
+
+    public void setUserTH(String userTH) {
+        UserTH = userTH;
+    }
+
+    public String getPhone() {
+        return Phone;
+    }
+
+    public void setPhone(String phone) {
+        Phone = phone;
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String email) {
+        Email = email;
+    }
+
+    public String getForUser() {
+        return ForUser;
+    }
+
+    public void setForUser(String forUser) {
+        ForUser = forUser;
+    }
+
+    public String getForUserEN() {
+        return ForUserEN;
+    }
+
+    public void setForUserEN(String forUserEN) {
+        ForUserEN = forUserEN;
+    }
+
+    public String getForUserTH() {
+        return ForUserTH;
+    }
+
+    public void setForUserTH(String forUserTH) {
+        ForUserTH = forUserTH;
+    }
+
+    public String getForPhone() {
+        return ForPhone;
+    }
+
+    public void setForPhone(String forPhone) {
+        ForPhone = forPhone;
+    }
+
+    public String getForEmail() {
+        return ForEmail;
+    }
+
+    public void setForEmail(String forEmail) {
+        ForEmail = forEmail;
+    }
+
+    public String getNote() {
+        return Note;
+    }
+
+    public void setNote(String note) {
+        Note = note;
+    }
+
+    public String getWhen() {
+        return When;
+    }
+
+    public void setWhen(String when) {
+        When = when;
+    }
+
     public String getRoom() {
         return Room;
     }
