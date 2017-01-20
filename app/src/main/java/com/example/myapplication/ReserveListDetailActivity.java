@@ -8,7 +8,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapplication.model.LoginRes;
+import com.example.myapplication.model.MakeReq;
 import com.example.myapplication.model.ReserveInfo;
+import com.example.myapplication.util.StringUtil;
 import com.example.myapplication.util.TokenUtil;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -50,5 +52,57 @@ public class ReserveListDetailActivity extends AppCompatActivity {
 
     public void doMakeConfirm(View view){
 
+        MakeReq makeReq = new MakeReq();
+        makeReq.setRoom(reserveInfo.getRoom());
+        makeReq.setNote(reserveInfo.getTopic());
+        makeReq.setToken(TokenUtil.getToken(getApplicationContext()));
+        makeReq.setUser(TokenUtil.getUser(getApplicationContext()));
+        makeReq.setFrom(StringUtil.formatDatTime(reserveInfo.getDateMeeting(),reserveInfo.getTimeStart()));
+        makeReq.setTo(StringUtil.formatDatTime(reserveInfo.getDateMeeting(),reserveInfo.getTimeEnd()));
+
+        makeReq.setFrom("20170122 130000"); // test
+        makeReq.setTo("20170122 140000"); // test
+
+        Gson gson = new Gson();
+        String json = gson.toJson(makeReq);
+        System.out.println("json = "+json);
+
+        String makeResponse = callSlotMake(json);
+        System.out.println("makeResponse = "+makeResponse);
+
+        Type founderType = new TypeToken<LoginRes>(){}.getType();
+        LoginRes res = gson.fromJson(makeResponse, founderType);
+
+        if(res != null && res.getToken() != null){
+            TokenUtil.saveToken(res.getToken(), getApplicationContext());
+            if(res.getState()==0){
+                Toast.makeText(getApplicationContext(), "Room:"+makeReq.getRoom()+" --> Reserved Successfully.", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getApplicationContext(), "Reserve --> Failed", Toast.LENGTH_SHORT).show();
+            }
+            Intent intent = new Intent(this,CenterpointActivity.class);
+            startActivity(intent);
+        }
+
+
+
+
+
+    }
+
+    private String callSlotMake(String json) {
+        try {
+            DownloadTask task = new DownloadTask();
+            task.setUrl("http://10.215.101.76:5000/slot/make");
+            task.setJson(json);
+            String result = task.execute().get();
+            return result;
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+            return null;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }
