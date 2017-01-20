@@ -1,10 +1,19 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.myapplication.model.LoginRes;
 import com.example.myapplication.model.ReserveInfo;
+import com.example.myapplication.util.TokenUtil;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
 
 public class ReserveListDetailActivity extends AppCompatActivity {
 
@@ -37,5 +46,9 @@ public class ReserveListDetailActivity extends AppCompatActivity {
         reserveDetailSize.setText(String.valueOf(reserveInfo.getSizeMin())+"-"+String.valueOf(reserveInfo.getSizeMax()));
         reserveDetailTopic.setText(reserveInfo.getTopic());
         reserveDetailUserFor.setText(reserveInfo.getUserIdMeeting());
+    }
+
+    public void doMakeConfirm(View view){
+
     }
 }

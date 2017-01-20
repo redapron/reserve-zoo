@@ -117,7 +117,9 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/reserveDetailConfirmButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="doMakeConfirm"
         android:text="Confirm"/>
 </LinearLayout>
