@@ -25,4 +25,35 @@ public class StringUtil {
         return dd;
     }
 
+    public static String getClientDateFormat(String yyyyMMdd_hhmmss){
+        if(yyyyMMdd_hhmmss != null){
+            yyyyMMdd_hhmmss = yyyyMMdd_hhmmss.trim();
+            String[] xxx = yyyyMMdd_hhmmss.split("[ ]");
+            //20170131
+            String dateOnly = xxx[0];
+            String date = dateOnly.substring(6,8)+"/"+dateOnly.substring(4,6)+"/"+dateOnly.substring(0,4);
+            return date;
+        }
+        return "";
+    }
+
+    public static String getClientTimeFormat(String yyyyMMdd_hhmmss){
+        if(yyyyMMdd_hhmmss != null){
+            yyyyMMdd_hhmmss = yyyyMMdd_hhmmss.trim();
+            String[] xxx = yyyyMMdd_hhmmss.split("[ ]");
+            //20170131
+            String timeOnly = xxx[1];
+            String time = timeOnly.substring(0,2)+":"+timeOnly.substring(2,4);
+            return time;
+        }
+        return "";
+    }
+
+    public static void main(String[] arg ){
+        String xx = getClientDateFormat("20170131 123456");
+        String yy = getClientTimeFormat("20170131 123456");
+        System.out.println("xx = "+ xx);
+        System.out.println("yy = "+ yy);
+    }
+
 }
