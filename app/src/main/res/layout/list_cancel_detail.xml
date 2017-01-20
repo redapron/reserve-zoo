@@ -48,7 +48,7 @@
             <TextView
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
-                android:text="Topic : "/>
+                android:text="เรื่องการประชุม : "/>
 
             <TextView
                 android:id="@+id/listCancelNote"
@@ -64,7 +64,7 @@
             <TextView
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
-                android:text="ผู้ใช้ : "/>
+                android:text="ชื่อผู้ใช้ห้องประชุม : "/>
 
             <TextView
                 android:id="@+id/listCancelForName"
@@ -96,7 +96,7 @@
             <TextView
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
-                android:text="ผู้จอง : "/>
+                android:text="ชื่อผู้จอง : "/>
 
             <TextView
                 android:id="@+id/listCancelUserName"

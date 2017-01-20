@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.myapplication.CancleDetailActivity">
+    tools:context="com.example.myapplication.CancelDetailActivity">
 
 
     <TextView
@@ -23,7 +23,7 @@
         <TextView
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:text="date : "/>
+            android:text="Date : "/>
 
         <TextView
             android:id="@+id/cancelDetailDate"
@@ -39,7 +39,7 @@
         <TextView
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:text="time : "/>
+            android:text="Time : "/>
 
         <TextView
             android:id="@+id/cancelDetailTime"
@@ -55,7 +55,7 @@
         <TextView
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:text="room : "/>
+            android:text="Room : "/>
 
         <TextView
             android:id="@+id/cancelDetailRoom"
@@ -71,7 +71,7 @@
         <TextView
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:text="note : "/>
+            android:text="เรื่องการประชุม : "/>
 
         <TextView
             android:id="@+id/cancelDetailNote"
@@ -87,7 +87,7 @@
         <TextView
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:text="ผู้ใช้ : "/>
+            android:text="ชื่อผู้ใช้ห้องประชุม : "/>
 
         <TextView
             android:id="@+id/cancelDetailForName"
@@ -119,7 +119,7 @@
         <TextView
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:text="ผู้จอง : "/>
+            android:text="ชื่อผู้จอง : "/>
 
         <TextView
             android:id="@+id/cancelDetailUserName"
@@ -148,6 +148,6 @@
         android:id="@+id/cancelDetailConfirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="doCancleConfirm"
+        android:onClick="doCancelConfirm"
         android:text="Confirm"/>
 </LinearLayout>
