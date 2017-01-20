@@ -1,10 +1,12 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.myapplication.model.CancelRoomRes;
 import com.example.myapplication.model.ConfirmCancelRoomReq;
@@ -62,6 +64,7 @@ public class  CancelDetailActivity extends AppCompatActivity {
         req.setUser(TokenUtil.getUser(getApplicationContext()));
         req.setFrom(roomInfo.getFrom());
         req.setTo(roomInfo.getTo());
+        req.setRoom(roomInfo.getRoom());
 
         Gson gson = new Gson();
         String json = gson.toJson(req);
@@ -77,6 +80,17 @@ public class  CancelDetailActivity extends AppCompatActivity {
         TokenUtil.saveToken(res.getToken(), getApplicationContext());
 
         Log.i("bui", "doSearchCancel res: " + res.getError() + res.getToken() + res.getState() + "end");
+
+        if(res != null && res.getToken() != null){
+            TokenUtil.saveToken(res.getToken(), getApplicationContext());
+            if(res.getState()==0){
+                Toast.makeText(getApplicationContext(), "Room:"+roomInfo.getRoom()+" --> Cancelled Successfully.", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getApplicationContext(), "Failed --> "+res.getError(), Toast.LENGTH_SHORT).show();
+            }
+            Intent intent = new Intent(this,CenterpointActivity.class);
+            startActivity(intent);
+        }
 
     }
 
