@@ -10,12 +10,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.example.myapplication.model.AppContext;
 import com.example.myapplication.model.LoginRes;
+import com.example.myapplication.model.ReserveInfo;
 import com.example.myapplication.model.Room;
 import com.example.myapplication.model.RoomReq;
 import com.example.myapplication.model.RoomRes;
@@ -175,6 +177,11 @@ public class ReserveActivity extends AppCompatActivity {
         CheckBox conference = (CheckBox) findViewById(R.id.conference);
         CheckBox whiteBoard = (CheckBox) findViewById(R.id.whiteBoard);
 
+        EditText topic = (EditText) findViewById(R.id.topic);
+        EditText userIdMeeting = (EditText) findViewById(R.id.userIdMeeting);
+        EditText userPhoneMeeting = (EditText) findViewById(R.id.userPhoneMeeting);
+
+
         String dateMeetingStr = dateMeeting.getText().toString();
         String startTimeStr = startTime.getText().toString();
         String endTimeStr = endTime.getText().toString();
@@ -184,6 +191,7 @@ public class ReserveActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Please fill all *", Toast.LENGTH_SHORT).show();
             return;
         }
+
 
         RoomReq roomReq = new RoomReq();
         roomReq.setToken(TokenUtil.getToken(getApplicationContext()));
@@ -208,33 +216,21 @@ public class ReserveActivity extends AppCompatActivity {
 
         String availableRoom = callSlotAvailable(json);
         System.out.println("availableRoom = "+availableRoom);
-//        String availableRoomLower = availableRoom.replace("Token","token");
-//        availableRoomLower = availableRoomLower.replace("Error","error");
-//        availableRoomLower = availableRoomLower.replace("State","state");
-//        availableRoomLower = availableRoomLower.replace("Slots","slots");
-//        availableRoomLower = availableRoomLower.replace("Room","room");
-//        availableRoomLower = availableRoomLower.replace("SizeMax","sizemax");
-//        availableRoomLower = availableRoomLower.replace("HasProjector","hasprojector");
-//        availableRoomLower = availableRoomLower.replace("HasVC","hasvc");
-//        availableRoomLower = availableRoomLower.replace("HasWB","haswb");
-//
-//        System.out.println("availableRoomLower = "+availableRoomLower);
 
         //String jsonInString = "{\"token\":\"mkyong\",\"error\":7500,\"slots\":[{\"roomName\": \"0803\",\"sizeMax\":7},{\"roomName\": \"0814\",\"sizeMax\":9}]}";
         //Type founderType = new TypeToken<LoginRes>(){}.getType();
         //LoginRes loginRes = gson.fromJson(jsonInString, founderType);
 
-        //RoomRes res = gson.fromJson(availableRoomLower, RoomRes.class);// Convert JSON String to car object
         RoomRes res = gson.fromJson(availableRoom, RoomRes.class);// Convert JSON String to car object
-        System.out.println("res.getToken() = "+res.getToken());
-        System.out.println("res.getState() = "+res.getState());
-        System.out.println("res.getError() = "+res.getError());
         TokenUtil.saveToken(res.getToken(), getApplicationContext());
 
-        //System.out.println("res.getSlots() = "+res.getSlots().length);
-        //System.out.println("res.getSlots() = "+res.getSlots()[0].getRoom());
-//        System.out.println("res.getToken() = "+res.getSlots()[0].getSizemax());
-//        System.out.println("res.getToken() = "+res.getSlots()[0].isHasprojector());
+        ReserveInfo info = new ReserveInfo();
+        info.setTopic(topic.getText().toString());
+        info.setUserIdMeeting(userIdMeeting.getText().toString());
+        info.setUserPhoneMeeting(userPhoneMeeting.getText().toString());
+        info.setDateMeeting(dateMeetingStr.trim());
+        info.setTimeStart(startTimeStr.trim());
+        info.setTimeEnd(endTimeStr.trim());
 
 //        ObjectMapper mapper = new ObjectMapper();
 //        try {
@@ -248,26 +244,15 @@ public class ReserveActivity extends AppCompatActivity {
 //            e.printStackTrace();
 //        }
 
-        //System.out.println("loginRes.getToken() = "+loginRes.getToken());
-        //System.out.println("loginRes.getSlot() = "+loginRes.getSlots().length);
-
-
-        //Type founderType = new TypeToken<LoginRes>(){}.getType();
-        //LoginRes loginRes = gson.fromJson(loginResult, founderType);
-
-//        Intent intent = new Intent(this,SearchResultActivity.class);
-//        intent.putExtra("date",textViewDateMeeting.getText());
-//        intent.putExtra("timeStart",textViewStartTime.getText());
-//        intent.putExtra("timeEnd",textViewEndTime.getText());
-//        startActivity(intent);
-        ArrayList<Room> roomList = new ArrayList<Room>();
+        ArrayList<Room> roomList = null;
         if(res.getSlots()!= null){
             Room room = null;
-
+            roomList = new ArrayList<Room>();
             for(Room item :res.getSlots()){
                 room = new Room();
                 room.setRoom(item.getRoom());
                 room.setSizeMax(item.getSizeMax());
+                room.setSizeMin(item.getSizeMin());
                 room.setHasProjector(item.isHasProjector());
                 room.setHasVC(item.isHasVC());
                 room.setHasWB(item.isHasWB());
@@ -275,12 +260,11 @@ public class ReserveActivity extends AppCompatActivity {
             }
         }
 
-        AppContext.getInstance().setRoomList(roomList);
+        //AppContext.getInstance().setRoomList(roomList);
 
         Intent intent = new Intent(ReserveActivity.this,ReserveListActivity.class);
-        //Bundle bundle = new Bundle();
-        //bundle.putSerializable("xx",roomList);
-        //intent.putExtras(bundle);
+        intent.putExtra("roomList",roomList);
+        intent.putExtra("reserveInfo",info);
         startActivity(intent);
     }
 
