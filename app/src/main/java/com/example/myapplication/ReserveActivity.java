@@ -207,16 +207,16 @@ public class ReserveActivity extends AppCompatActivity {
         //roomReq.setFrom("20170120 090000"); // test
         //roomReq.setTo("20170120 103000"); // test
 
-        roomReq.setFrom("20170122 120000"); // test
-        roomReq.setTo("20170122 130000"); // test
+        //roomReq.setFrom("20170122 120000"); // test
+        //roomReq.setTo("20170122 130000"); // test
 
         roomReq.setSize(Integer.valueOf(memberStr));
         roomReq.setInverse(true);
         roomReq.setHasProjector(projector.isChecked());
         roomReq.setHasVc(conference.isChecked());
-        roomReq.setHasVc(true); // test
+        //roomReq.setHasVc(true); // test
         roomReq.setHasWb(whiteBoard.isChecked());
-        roomReq.setHasWb(true); //test
+        //roomReq.setHasWb(true); //test
 
         Gson gson = new Gson();
         String json = gson.toJson(roomReq);
