@@ -202,8 +202,13 @@ public class ReserveActivity extends AppCompatActivity {
         roomReq.setFrom(StringUtil.formatDatTime(dateMeetingStr, startTimeStr)); // real
         roomReq.setTo(StringUtil.formatDatTime(dateMeetingStr, endTimeStr)); // real
 
-        roomReq.setFrom("20170120 090000"); // test
-        roomReq.setTo("20170120 103000"); // test
+        System.out.println("roomReq.getFrom() = "+roomReq.getFrom());
+        System.out.println("roomReq.getTo() = "+roomReq.getTo());
+        //roomReq.setFrom("20170120 090000"); // test
+        //roomReq.setTo("20170120 103000"); // test
+
+        roomReq.setFrom("20170122 120000"); // test
+        roomReq.setTo("20170122 130000"); // test
 
         roomReq.setSize(Integer.valueOf(memberStr));
         roomReq.setInverse(true);
