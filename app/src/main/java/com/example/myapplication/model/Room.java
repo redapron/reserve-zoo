@@ -1,17 +1,19 @@
 package com.example.myapplication.model;
 
+import java.io.Serializable;
+
 /**
  * Created by kanit.ko on 19/Jan/2017.
  */
 
-public class Room {
+public class Room implements Serializable{
 
     private String Room;
     private int SizeMax;
+    private int SizeMin;
     private boolean HasProjector;
     private boolean HasVC;
     private boolean HasWB;
-    private String sizez;
 
     public String getRoom() {
         return Room;
@@ -27,6 +29,14 @@ public class Room {
 
     public void setSizeMax(int sizeMax) {
         SizeMax = sizeMax;
+    }
+
+    public int getSizeMin() {
+        return SizeMin;
+    }
+
+    public void setSizeMin(int sizeMin) {
+        SizeMin = sizeMin;
     }
 
     public boolean isHasProjector() {
@@ -51,13 +61,5 @@ public class Room {
 
     public void setHasWB(boolean hasWB) {
         HasWB = hasWB;
-    }
-
-    public String getSizez() {
-        return sizez;
-    }
-
-    public void setSizez(String sizez) {
-        this.sizez = sizez;
     }
 }
