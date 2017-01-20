@@ -12,6 +12,9 @@ public class ReserveListDetailActivity extends AppCompatActivity {
     TextView reserveDetailTime;
     TextView reserveDetailRoom;
     TextView reserveDetailSize;
+    TextView reserveDetailTopic;
+    TextView reserveDetailUserFor;
+
     ReserveInfo reserveInfo;
 
     @Override
@@ -25,10 +28,14 @@ public class ReserveListDetailActivity extends AppCompatActivity {
         reserveDetailTime = (TextView)findViewById(R.id.reserveDetailTime);
         reserveDetailRoom = (TextView)findViewById(R.id.reserveDetailRoom);
         reserveDetailSize = (TextView)findViewById(R.id.reserveDetailSize);
+        reserveDetailTopic = (TextView)findViewById(R.id.reserveDetailTopic);
+        reserveDetailUserFor = (TextView)findViewById(R.id.reserveDetailUserFor);
 
         reserveDetailDate.setText(reserveInfo.getDateMeeting());
         reserveDetailTime.setText(reserveInfo.getTimeStart()+" - "+reserveInfo.getTimeEnd());
         reserveDetailRoom.setText(reserveInfo.getRoom());
         reserveDetailSize.setText(String.valueOf(reserveInfo.getSizeMin())+"-"+String.valueOf(reserveInfo.getSizeMax()));
+        reserveDetailTopic.setText(reserveInfo.getTopic());
+        reserveDetailUserFor.setText(reserveInfo.getUserIdMeeting());
     }
 }
