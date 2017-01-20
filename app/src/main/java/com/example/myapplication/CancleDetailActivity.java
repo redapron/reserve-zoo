@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.myapplication.model.Room;
 
@@ -14,5 +15,9 @@ public class CancleDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cancle_detail);
 
         roomInfo = (Room) getIntent().getSerializableExtra("roomInfo");
+    }
+
+    public void doCancleConfirm(View view){
+
     }
 }
