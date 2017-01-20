@@ -14,6 +14,9 @@ public class ReserveInfo implements Serializable{
     private String topic;
     private String userIdMeeting;
     private String userPhoneMeeting;
+    private String room;
+    private int sizeMin;
+    private int sizeMax;
 
     public String getDateMeeting() {
         return dateMeeting;
@@ -61,5 +64,29 @@ public class ReserveInfo implements Serializable{
 
     public void setUserPhoneMeeting(String userPhoneMeeting) {
         this.userPhoneMeeting = userPhoneMeeting;
+    }
+
+    public String getRoom() {
+        return room;
+    }
+
+    public void setRoom(String room) {
+        this.room = room;
+    }
+
+    public int getSizeMin() {
+        return sizeMin;
+    }
+
+    public void setSizeMin(int sizeMin) {
+        this.sizeMin = sizeMin;
+    }
+
+    public int getSizeMax() {
+        return sizeMax;
+    }
+
+    public void setSizeMax(int sizeMax) {
+        this.sizeMax = sizeMax;
     }
 }

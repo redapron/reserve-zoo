@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.example.myapplication.model.Room;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by nu on 1/18/2017.
@@ -18,9 +19,9 @@ import java.util.ArrayList;
 public class ReserveAdapter extends BaseAdapter {
 
     Context mContext;
-    ArrayList<Room> items;
+    List<Room> items;
 
-    public ReserveAdapter(Context context, ArrayList<Room> items){
+    public ReserveAdapter(Context context, List<Room> items){
         this.mContext = context;
         this.items = items;
     }
@@ -51,7 +52,7 @@ public class ReserveAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
         }
         viewHolder.item_text1.setText(items.get(position).getRoom());
-        viewHolder.item_text2.setText(items.get(position).getSizeMax());
+        viewHolder.item_text2.setText(String.valueOf(items.get(position).getSizeMin())+"-"+String.valueOf(items.get(position).getSizeMax()));
         return convertView;
     }
 

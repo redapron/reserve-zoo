@@ -22,7 +22,7 @@
 
             <TextView
                 android:id="@+id/listReserveRoom"
-                android:layout_width="50dp"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:text="0802"/>
 
