@@ -11,7 +11,7 @@ public class RoomReq {
     private String From;
     private String To;
     private int Size;
-    private boolean Invert;
+    private boolean Inverse;
     private boolean HasProjector;
     private boolean HasVc;
     private boolean HasWb;
@@ -56,12 +56,12 @@ public class RoomReq {
         Size = size;
     }
 
-    public boolean isInvert() {
-        return Invert;
+    public boolean isInverse() {
+        return Inverse;
     }
 
-    public void setInvert(boolean invert) {
-        Invert = invert;
+    public void setInverse(boolean inverse) {
+        Inverse = inverse;
     }
 
     public boolean isHasProjector() {

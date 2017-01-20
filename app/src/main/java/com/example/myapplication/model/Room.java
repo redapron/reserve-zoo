@@ -6,51 +6,59 @@ package com.example.myapplication.model;
 
 public class Room {
 
+<<<<<<< HEAD
     private String room;
     private String sizez;
     private int sizemax;
     private boolean hasprojector;
     private boolean hasvc;
     private boolean haswb;
+=======
+    private String Room;
+    private int SizeMax;
+    private boolean HasProjector;
+    private boolean HasVC;
+    private boolean HasWB;
+>>>>>>> 5a20b2e06628c9c9ce618164ce79f5d67393560b
 
     public String getRoom() {
-        return room;
+        return Room;
     }
 
     public void setRoom(String room) {
-        this.room = room;
+        Room = room;
     }
 
-    public int getSizemax() {
-        return sizemax;
+    public int getSizeMax() {
+        return SizeMax;
     }
 
-    public void setSizemax(int sizemax) {
-        this.sizemax = sizemax;
+    public void setSizeMax(int sizeMax) {
+        SizeMax = sizeMax;
     }
 
-    public boolean isHasprojector() {
-        return hasprojector;
+    public boolean isHasProjector() {
+        return HasProjector;
     }
 
-    public void setHasprojector(boolean hasprojector) {
-        this.hasprojector = hasprojector;
+    public void setHasProjector(boolean hasProjector) {
+        HasProjector = hasProjector;
     }
 
-    public boolean isHasvc() {
-        return hasvc;
+    public boolean isHasVC() {
+        return HasVC;
     }
 
-    public void setHasvc(boolean hasvc) {
-        this.hasvc = hasvc;
+    public void setHasVC(boolean hasVC) {
+        HasVC = hasVC;
     }
 
-    public boolean isHaswb() {
-        return haswb;
+    public boolean isHasWB() {
+        return HasWB;
     }
 
-    public void setHaswb(boolean haswb) {
-        this.haswb = haswb;
+    public void setHasWB(boolean hasWB) {
+        HasWB = hasWB;
     }
 
     public String getSizez() {

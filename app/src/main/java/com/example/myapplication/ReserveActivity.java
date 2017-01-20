@@ -187,13 +187,19 @@ public class ReserveActivity extends AppCompatActivity {
         RoomReq roomReq = new RoomReq();
         roomReq.setToken(TokenUtil.getToken(getApplicationContext()));
         roomReq.setUser(TokenUtil.getUser(getApplicationContext()));
-        roomReq.setFrom(StringUtil.formatDatTime(dateMeetingStr, startTimeStr));
-        roomReq.setTo(StringUtil.formatDatTime(dateMeetingStr, endTimeStr));
+        roomReq.setFrom(StringUtil.formatDatTime(dateMeetingStr, startTimeStr)); // real
+        roomReq.setTo(StringUtil.formatDatTime(dateMeetingStr, endTimeStr)); // real
+
+        roomReq.setFrom("20170120 090000"); // test
+        roomReq.setTo("20170120 103000"); // test
+
         roomReq.setSize(Integer.valueOf(memberStr));
-        roomReq.setInvert(true);
+        roomReq.setInverse(true);
         roomReq.setHasProjector(projector.isChecked());
         roomReq.setHasVc(conference.isChecked());
+        roomReq.setHasVc(true); // test
         roomReq.setHasWb(whiteBoard.isChecked());
+        roomReq.setHasWb(true); //test
 
         Gson gson = new Gson();
         String json = gson.toJson(roomReq);
@@ -201,20 +207,37 @@ public class ReserveActivity extends AppCompatActivity {
 
         String availableRoom = callSlotAvailable(json);
         System.out.println("availableRoom = "+availableRoom);
-        String availableRoomLower = availableRoom.replace("Token","token");
-        availableRoomLower = availableRoomLower.replace("Error","error");
-        availableRoomLower = availableRoomLower.replace("State","state");
-        availableRoomLower = availableRoomLower.replace("Slots","slots");
-
-        System.out.println("availableRoomLower = "+availableRoomLower);
+//        String availableRoomLower = availableRoom.replace("Token","token");
+//        availableRoomLower = availableRoomLower.replace("Error","error");
+//        availableRoomLower = availableRoomLower.replace("State","state");
+//        availableRoomLower = availableRoomLower.replace("Slots","slots");
+//        availableRoomLower = availableRoomLower.replace("Room","room");
+//        availableRoomLower = availableRoomLower.replace("SizeMax","sizemax");
+//        availableRoomLower = availableRoomLower.replace("HasProjector","hasprojector");
+//        availableRoomLower = availableRoomLower.replace("HasVC","hasvc");
+//        availableRoomLower = availableRoomLower.replace("HasWB","haswb");
+//
+//        System.out.println("availableRoomLower = "+availableRoomLower);
 
         //String jsonInString = "{\"token\":\"mkyong\",\"error\":7500,\"slots\":[{\"roomName\": \"0803\",\"sizeMax\":7},{\"roomName\": \"0814\",\"sizeMax\":9}]}";
         //Type founderType = new TypeToken<LoginRes>(){}.getType();
         //LoginRes loginRes = gson.fromJson(jsonInString, founderType);
 
-        RoomRes res = gson.fromJson(availableRoomLower, RoomRes.class);// Convert JSON String to car object
+        //RoomRes res = gson.fromJson(availableRoomLower, RoomRes.class);// Convert JSON String to car object
+        RoomRes res = gson.fromJson(availableRoom, RoomRes.class);// Convert JSON String to car object
         System.out.println("res.getToken() = "+res.getToken());
+<<<<<<< HEAD
         //TokenUtil.saveToken(res.getToken(), getApplicationContext());
+=======
+        System.out.println("res.getState() = "+res.getState());
+        System.out.println("res.getError() = "+res.getError());
+        TokenUtil.saveToken(res.getToken(), getApplicationContext());
+>>>>>>> 5a20b2e06628c9c9ce618164ce79f5d67393560b
+
+        System.out.println("res.getSlots() = "+res.getSlots().length);
+        System.out.println("res.getRoom() = "+res.getSlots()[0].getRoom());
+//        System.out.println("res.getToken() = "+res.getSlots()[0].getSizemax());
+//        System.out.println("res.getToken() = "+res.getSlots()[0].isHasprojector());
 
 //        ObjectMapper mapper = new ObjectMapper();
 //        try {
