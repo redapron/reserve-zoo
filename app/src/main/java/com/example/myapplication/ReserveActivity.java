@@ -186,8 +186,11 @@ public class ReserveActivity extends AppCompatActivity {
         String startTimeStr = startTime.getText().toString();
         String endTimeStr = endTime.getText().toString();
         String memberStr = member.getText().toString();
+        String topicStr = topic.getText().toString().trim();
+        String userIdMeetingStr = userIdMeeting.getText().toString().trim();
 
-        if(memberStr.isEmpty()){
+
+        if(memberStr.isEmpty() || userIdMeetingStr.isEmpty()){
             Toast.makeText(getApplicationContext(), "Please fill all *", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -224,13 +227,11 @@ public class ReserveActivity extends AppCompatActivity {
         RoomRes res = gson.fromJson(availableRoom, RoomRes.class);// Convert JSON String to car object
         TokenUtil.saveToken(res.getToken(), getApplicationContext());
 
-        ReserveInfo info = new ReserveInfo();
-        info.setTopic(topic.getText().toString());
-        info.setUserIdMeeting(userIdMeeting.getText().toString());
-        info.setUserPhoneMeeting(userPhoneMeeting.getText().toString());
-        info.setDateMeeting(dateMeetingStr.trim());
-        info.setTimeStart(startTimeStr.trim());
-        info.setTimeEnd(endTimeStr.trim());
+        if(res.getSlots()!=null && res.getSlots().length == 0){
+            Toast.makeText(getApplicationContext(), "Meeting room not found", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
 
 //        ObjectMapper mapper = new ObjectMapper();
 //        try {
@@ -245,7 +246,7 @@ public class ReserveActivity extends AppCompatActivity {
 //        }
 
         ArrayList<Room> roomList = null;
-        if(res.getSlots()!= null){
+        if(res.getSlots()!= null && res.getSlots().length > 0){
             Room room = null;
             roomList = new ArrayList<Room>();
             for(Room item :res.getSlots()){
@@ -259,6 +260,14 @@ public class ReserveActivity extends AppCompatActivity {
                 roomList.add(room);
             }
         }
+
+        ReserveInfo info = new ReserveInfo();
+        info.setTopic(topic.getText().toString());
+        info.setUserIdMeeting(userIdMeeting.getText().toString());
+        info.setUserPhoneMeeting(userPhoneMeeting.getText().toString());
+        info.setDateMeeting(dateMeetingStr.trim());
+        info.setTimeStart(startTimeStr.trim());
+        info.setTimeEnd(endTimeStr.trim());
 
         //AppContext.getInstance().setRoomList(roomList);
 
