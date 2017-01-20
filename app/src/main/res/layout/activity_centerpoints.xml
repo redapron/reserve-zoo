@@ -4,11 +4,13 @@
     android:id="@+id/activity_centerpoints"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.myapplication.CenterpointActivity">
+
+    <ImageView
+        android:scaleType="centerCrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/bg"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -31,7 +33,8 @@
                 android:height="140sp"
                 android:width="140sp"
                 android:onClick="reserveAction"
-                android:textColor="@color/colorPrimary"/>
+                android:textColor="#000000"
+                android:background="#32fae6"/>
             <Button
                 android:id="@+id/cancelReserveButton"
                 android:layout_width="wrap_content"
@@ -40,29 +43,31 @@
                 android:height="140sp"
                 android:width="140sp"
                 android:onClick="cancelAction"
-                android:textColor="@color/colorPrimary"/>
+                android:textColor="#000000"
+                android:background="#f8fc19"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-            <Button
-                android:id="@+id/showButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="show"
-                android:height="140sp"
-                android:width="140sp"
-                android:textColor="@color/colorPrimary"/>
+            <!--<Button-->
+                <!--android:id="@+id/showButton"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="show"-->
+                <!--android:height="140sp"-->
+                <!--android:width="140sp"-->
+                <!--android:textColor="@color/colorPrimary"/>-->
             <Button
                 android:id="@+id/logoutButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Logout"
                 android:height="140sp"
-                android:width="140sp"
+                android:width="280sp"
                 android:onClick="doLogout"
-                android:textColor="@color/colorPrimary" />
+                android:textColor="#000000"
+                android:background="#4932fa"/>
 
 
         </LinearLayout>

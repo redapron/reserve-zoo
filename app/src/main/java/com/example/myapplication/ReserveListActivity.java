@@ -1,7 +1,10 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.myapplication.model.Room;
@@ -27,5 +30,12 @@ public class ReserveListActivity extends AppCompatActivity {
         list.add(b);
         ReserveAdapter adapter = new ReserveAdapter(this,list);
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(ReserveListActivity.this,ReserveListDetailActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

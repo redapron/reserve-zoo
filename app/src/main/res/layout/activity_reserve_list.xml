@@ -19,15 +19,30 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="วันที่"/>
+            android:text="Date : "/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=" 01/12/2017"/>
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Time : "/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" 9:00 - 10.00"/>
+    </LinearLayout>
     <ListView
         android:id="@+id/listViewReserve"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp">
     </ListView>
 </LinearLayout>
