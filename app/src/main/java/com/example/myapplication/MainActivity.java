@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.myapplication.model.LoginRes;
@@ -73,8 +74,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void doLogin(View view){
 
-        String user = "Android3";  // test
-        String pass = "66y41168j";  // test
+        //String user = "Android3";  // test
+        //String pass = "66y41168j";  // test
+
+        EditText userBox = (EditText) findViewById(R.id.userBox);
+        EditText passwordBox = (EditText) findViewById(R.id.passwordBox);
+        String user = userBox.getText().toString().trim();
+        String pass = passwordBox.getText().toString().trim();
+
+        //user = "Android3";  // test
+        //pass = "66y41168j";  // test
 
         String loginResult = callLogin(user ,pass);
         System.out.println("loginResult = "+loginResult);
