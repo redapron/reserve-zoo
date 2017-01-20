@@ -9,7 +9,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.myapplication.ReserveListDetailActivity">
+    tools:context="com.example.myapplication.ReserveListDetailActivity"
+    android:background="@drawable/bg2">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,7 +18,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="Date : "
             android:layout_marginLeft="10dp"/>
@@ -25,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/reserveDetailDate"
-            android:text=" 01/12/2017"/>
+            android:text="01/12/2017"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,7 +34,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="Time : "
             android:layout_marginLeft="10dp"/>
@@ -41,7 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/reserveDetailTime"
-            android:text=" 9:00 - 10.00"/>
+            android:text="9:00 - 10.00"/>
     </LinearLayout>
 
     <LinearLayout
@@ -50,7 +51,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="50dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="Room : "
             android:layout_marginLeft="10dp"/>
@@ -68,7 +69,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="50dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="Size : "
             android:layout_marginLeft="10dp"/>
@@ -86,7 +87,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="50dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="Topic : "
             android:layout_marginLeft="10dp"/>
@@ -104,7 +105,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="50dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="User id for meeting : "
             android:layout_marginLeft="10dp"/>
