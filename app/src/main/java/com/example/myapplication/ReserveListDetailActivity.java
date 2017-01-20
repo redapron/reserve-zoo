@@ -78,7 +78,7 @@ public class ReserveListDetailActivity extends AppCompatActivity {
             if(res.getState()==0){
                 Toast.makeText(getApplicationContext(), "Room:"+makeReq.getRoom()+" --> Reserved Successfully.", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(getApplicationContext(), "Reserve --> Failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Failed --> "+res.getError(), Toast.LENGTH_SHORT).show();
             }
             Intent intent = new Intent(this,CenterpointActivity.class);
             startActivity(intent);
