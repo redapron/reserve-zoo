@@ -6,40 +6,40 @@ package com.example.myapplication.model;
 
 public class RoomRes {
 
-    private String token;
-    private String error;
-    private int state;
-    private Room[] slots;
+    private String Token;
+    private String Error;
+    private int State;
+    private Room[] Slots;
 
     public String getToken() {
-        return token;
+        return Token;
     }
 
     public void setToken(String token) {
-        this.token = token;
+        Token = token;
     }
 
     public String getError() {
-        return error;
+        return Error;
     }
 
     public void setError(String error) {
-        this.error = error;
+        Error = error;
     }
 
     public int getState() {
-        return state;
+        return State;
     }
 
     public void setState(int state) {
-        this.state = state;
+        State = state;
     }
 
     public Room[] getSlots() {
-        return slots;
+        return Slots;
     }
 
     public void setSlots(Room[] slots) {
-        this.slots = slots;
+        Slots = slots;
     }
 }
