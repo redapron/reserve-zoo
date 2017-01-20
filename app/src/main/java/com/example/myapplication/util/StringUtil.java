@@ -17,4 +17,11 @@ public class StringUtil {
         }
         return String.format("%s%s%s", ds[2].trim(), ds[1], ds[0]);
     }
+
+    public static String formatDatTime(String ddMMyyyy, String hhmm){
+        String[] ddd  = ddMMyyyy.split("[/]");
+        String dd = ddd[2].trim()+ddd[1]+ddd[0]+" "+hhmm+"00";
+        return dd;
+    }
+
 }

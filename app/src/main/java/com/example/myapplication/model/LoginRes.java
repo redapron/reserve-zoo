@@ -1,5 +1,7 @@
 package com.example.myapplication.model;
 
+import java.util.List;
+
 /**
  * Created by kanit.ko on 19/Jan/2017.
  */
@@ -9,6 +11,7 @@ public class LoginRes {
     private String Token;
     private String Error;
     private int State;
+    private RoomRes[] Slots;
 
     public String getToken() {
         return Token;
@@ -32,5 +35,13 @@ public class LoginRes {
 
     public void setState(int state) {
         State = state;
+    }
+
+    public RoomRes[] getSlots() {
+        return Slots;
+    }
+
+    public void setSlots(RoomRes[] slots) {
+        Slots = slots;
     }
 }
