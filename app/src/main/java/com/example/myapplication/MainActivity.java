@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             rtn += String.format("'%s': '%s', ", pair.getKey(), pair.getValue());
         }
         rtn += "}";
-        Log.i("bui", rtn);
+        Log.i("bui", "rtn: " +rtn);
         return rtn;
     }
 }
