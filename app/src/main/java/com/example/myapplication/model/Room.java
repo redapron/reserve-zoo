@@ -11,6 +11,7 @@ public class Room {
     private boolean HasProjector;
     private boolean HasVC;
     private boolean HasWB;
+    private String sizez;
 
     public String getRoom() {
         return Room;
@@ -50,5 +51,13 @@ public class Room {
 
     public void setHasWB(boolean hasWB) {
         HasWB = hasWB;
+    }
+
+    public String getSizez() {
+        return sizez;
+    }
+
+    public void setSizez(String sizez) {
+        this.sizez = sizez;
     }
 }
