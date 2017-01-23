@@ -82,21 +82,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String user = userBox.getText().toString().trim();
         String pass = passwordBox.getText().toString().trim();
 
-        //user = "Android3";  // test
-        //pass = "66y41168j";  // test
+//        user = "Android3";  // test
+//        pass = "66y41168j";  // test
 
         String loginResult = callLogin(user ,pass);
         System.out.println("loginResult = "+loginResult);
 
         Gson gson = new Gson();
         Type founderType = new TypeToken<LoginRes>(){}.getType();
-        LoginRes loginRes = gson.fromJson(loginResult, founderType);
-        if(loginRes != null && loginRes.getToken()!= null){
-            TokenUtil.saveToken(loginRes.getToken(),getApplicationContext());
-            TokenUtil.saveUser(user,getApplicationContext());
-            Intent intent = new Intent(this,CenterpointActivity.class);
-            startActivity(intent);
-        } else {
+            LoginRes loginRes = gson.fromJson(loginResult, founderType);
+            if(loginRes != null && loginRes.getToken()!= null){
+                TokenUtil.saveToken(loginRes.getToken(),getApplicationContext());
+                TokenUtil.saveUser(user,getApplicationContext());
+                Intent intent = new Intent(this,CenterpointActivity.class);
+                startActivity(intent);
+            } else {
             Toast.makeText(getApplicationContext(), "Invalid Username/Password", Toast.LENGTH_SHORT).show();
         }
 

@@ -219,8 +219,11 @@ public class ReserveActivity extends AppCompatActivity {
         //roomReq.setHasWb(true); //test
 
         Gson gson = new Gson();
-        String json = gson.toJson(roomReq);
-        System.out.println("json = "+json);
+//        String json = gson.toJson(roomReq);
+//        System.out.println("json request = "+json);
+
+        String json = bowlingJson(roomReq);
+        System.out.println("json request = "+json);
 
         String availableRoom = callSlotAvailable(json);
         System.out.println("availableRoom = "+availableRoom);
@@ -280,6 +283,27 @@ public class ReserveActivity extends AppCompatActivity {
         intent.putExtra("roomList",roomList);
         intent.putExtra("reserveInfo",info);
         startActivity(intent);
+    }
+
+    private String bowlingJson(RoomReq roomReq) {
+        String req =  "{"
+                + "'Token':'"+roomReq.getToken()+"' ,"
+                + "'User':'" + roomReq.getUser() + "',"
+                + "'Size':'" + roomReq.getSize() + "',"
+                + "'From':'" + roomReq.getFrom() + "',"
+                + "'To':'" + roomReq.getTo() + "',"
+                + "'Inverse':'true'";
+                if(roomReq.isHasProjector()){
+                    req += ",'HasProjector':'true'";
+                }
+                if(roomReq.isHasVc()){
+                    req += ",'HasVC':'true'";
+                }
+                if(roomReq.isHasWb()){
+                    req += ",'HasWB':'true'";
+                }
+                req += "}";
+        return req;
     }
 
 

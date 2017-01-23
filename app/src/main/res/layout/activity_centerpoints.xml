@@ -4,8 +4,7 @@
     android:id="@+id/activity_centerpoints"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.myapplication.CenterpointActivity"
-    android:background="@drawable/bg2">
+    tools:context="com.example.myapplication.CenterpointActivity">
 
     <!--<ImageView-->
         <!--android:scaleType="fitXY"-->
