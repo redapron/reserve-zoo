@@ -73,6 +73,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void doLogin(View view){
+//        Intent intent = new Intent(this,CenterpointActivity.class); // test
+//        startActivity(intent);
 
         //String user = "Android3";  // test
         //String pass = "66y41168j";  // test

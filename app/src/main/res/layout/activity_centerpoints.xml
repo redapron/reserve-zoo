@@ -4,6 +4,7 @@
     android:id="@+id/activity_centerpoints"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg9"
     tools:context="com.example.myapplication.CenterpointActivity">
 
     <!--<ImageView-->
@@ -37,7 +38,7 @@
                 android:textColor="#937d7d"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:background="#1df20e"
+                android:background="@drawable/round1_button"
                 android:layout_margin="5dp"/>
             <Button
                 android:id="@+id/cancelReserveButton"
@@ -50,38 +51,39 @@
                 android:textColor="#937d7d"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:background="#f8fc19"
+                android:background="@drawable/round2_button"
                 android:layout_margin="5dp"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-            <!--<Button-->
-                <!--android:id="@+id/showButton"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="show"-->
-                <!--android:height="140sp"-->
-                <!--android:width="140sp"-->
-                <!--android:textColor="@color/colorPrimary"/>-->
+            <Button
+                android:id="@+id/showButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="show"
+                android:height="140sp"
+                android:width="140sp"
+                android:textColor="#ffffff"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:background="@drawable/round4_button"
+                android:layout_margin="5dp"/>
             <Button
                 android:id="@+id/logoutButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Logout"
                 android:height="140sp"
-                android:width="290sp"
+                android:width="140sp"
                 android:onClick="doLogout"
-                android:textColor="#937d7d"
+                android:textColor="#ffffff"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:background="#fd140c"
+                android:background="@drawable/round3_button"
                 android:layout_margin="5dp"/>
-
-
         </LinearLayout>
-
 
 
     </LinearLayout>
