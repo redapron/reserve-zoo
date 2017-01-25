@@ -51,16 +51,27 @@ public class ReserveAdapter extends BaseAdapter {
         }else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
+        viewHolder.item_text0.setText(getFloor(items.get(position).getFloor()));
         viewHolder.item_text1.setText(items.get(position).getRoom());
         viewHolder.item_text2.setText(String.valueOf(items.get(position).getSizeMin())+"-"+String.valueOf(items.get(position).getSizeMax()));
         return convertView;
     }
 
+    private String getFloor(int floorInt){
+        String floor = String.valueOf(floorInt);
+        if(0 == floorInt){
+            floor = "G";
+        }
+        return floor;
+    }
+
     private class ViewHolder {
         public TextView item_text1;
         public TextView item_text2;
+        public TextView item_text0;
 
         public ViewHolder(View converView){
+            item_text0 = (TextView) converView.findViewById(R.id.floor);
             item_text1 = (TextView) converView.findViewById(R.id.listReserveRoom);
             item_text2 = (TextView) converView.findViewById(R.id.listReserveSize);
         }

@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.myapplication.config.Constant;
 import com.example.myapplication.model.LoginRes;
 import com.example.myapplication.model.MakeReq;
 import com.example.myapplication.model.ReserveInfo;
@@ -76,24 +77,25 @@ public class ReserveListDetailActivity extends AppCompatActivity {
         if(res != null && res.getToken() != null){
             TokenUtil.saveToken(res.getToken(), getApplicationContext());
             if(res.getState()==0){
-                Toast.makeText(getApplicationContext(), "Room:"+makeReq.getRoom()+" --> Reserved Successfully.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Room:"+makeReq.getRoom()+" --> Reserved Successfully.", Toast.LENGTH_LONG).show();
             } else {
-                Toast.makeText(getApplicationContext(), "Failed --> "+res.getError(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Failed --> "+res.getError(), Toast.LENGTH_LONG).show();
             }
             Intent intent = new Intent(this,CenterpointActivity.class);
             startActivity(intent);
+        } else if(res != null && res.getError() != null) {
+            Toast.makeText(getApplicationContext(), "Failed --> "+res.getError(), Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(getApplicationContext(), "Failed --> Cannot connect to server.", Toast.LENGTH_LONG).show();
         }
-
-
-
-
 
     }
 
     private String callSlotMake(String json) {
         try {
             DownloadTask task = new DownloadTask();
-            task.setUrl("http://10.215.101.76:5000/slot/make");
+            //task.setUrl("http://10.215.101.76:5000/slot/make");;
+            task.setUrl(Constant.SERVICE_SLOT_MAKE);
             task.setJson(json);
             String result = task.execute().get();
             return result;

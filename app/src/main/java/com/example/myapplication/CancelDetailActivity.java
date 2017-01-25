@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.myapplication.config.Constant;
 import com.example.myapplication.model.CancelRoomRes;
 import com.example.myapplication.model.ConfirmCancelRoomReq;
 import com.example.myapplication.model.LoginRes;
@@ -77,19 +78,23 @@ public class  CancelDetailActivity extends AppCompatActivity {
         Type founderType = new TypeToken<LoginRes>(){}.getType();
         LoginRes res = gson.fromJson(cancelResult, founderType);
 
-        TokenUtil.saveToken(res.getToken(), getApplicationContext());
+        //TokenUtil.saveToken(res.getToken(), getApplicationContext());
 
         Log.i("bui", "doSearchCancel res: " + res.getError() + res.getToken() + res.getState() + "end");
 
         if(res != null && res.getToken() != null){
             TokenUtil.saveToken(res.getToken(), getApplicationContext());
             if(res.getState()==0){
-                Toast.makeText(getApplicationContext(), "Room:"+roomInfo.getRoom()+" --> Cancelled Successfully.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Room:"+roomInfo.getRoom()+" --> Cancelled Successfully.", Toast.LENGTH_LONG).show();
             } else {
-                Toast.makeText(getApplicationContext(), "Failed --> "+res.getError(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Failed --> "+res.getError(), Toast.LENGTH_LONG).show();
             }
             Intent intent = new Intent(this,CenterpointActivity.class);
             startActivity(intent);
+        } else if(res != null && res.getError() != null) {
+            Toast.makeText(getApplicationContext(), "Failed --> "+res.getError(), Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(getApplicationContext(), "Failed --> Cannot connect to server.", Toast.LENGTH_LONG).show();
         }
 
     }
@@ -97,7 +102,8 @@ public class  CancelDetailActivity extends AppCompatActivity {
     private String callDelete(String json) {
         try {
             DeleteTask task = new DeleteTask();
-            task.setUrl("http://10.215.101.76:5000/slot/free");
+            //task.setUrl("http://10.215.101.76:5000/slot/free");
+            task.setUrl(Constant.SERVICE_SLOT_CANCEL);
             task.setJson(json);
             String result = task.execute().get();
             return result;

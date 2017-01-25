@@ -30,6 +30,7 @@ public class ReserveListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_reserve_list);
 
         roomList = (ArrayList<Room>) getIntent().getSerializableExtra("roomList");
+        System.out.println("roomList.size() = "+roomList.size());
         reserveInfo = (ReserveInfo) getIntent().getSerializableExtra("reserveInfo");
 
         listReserveDate = (TextView) findViewById(R.id.listReserveDate);

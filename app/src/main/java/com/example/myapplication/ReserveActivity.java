@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.myapplication.config.Constant;
 import com.example.myapplication.model.AppContext;
 import com.example.myapplication.model.LoginRes;
 import com.example.myapplication.model.ReserveInfo;
@@ -31,6 +32,8 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class ReserveActivity extends AppCompatActivity {
@@ -269,6 +272,20 @@ public class ReserveActivity extends AppCompatActivity {
             }
         }
 
+        // sort room
+        Collections.sort(roomList, new Comparator<Room>() {
+            @Override
+            public int compare(Room o1, Room o2) {
+                if(o1.getFloor() > o2.getFloor()){
+                    return -1;
+                } else if (o1.getFloor() < o2.getFloor()){
+                    return 1;
+                } else {
+                    return 0;
+                }
+            }
+        });
+
         ReserveInfo info = new ReserveInfo();
         info.setTopic(topic.getText().toString());
         info.setUserIdMeeting(userIdMeeting.getText().toString());
@@ -283,6 +300,39 @@ public class ReserveActivity extends AppCompatActivity {
         intent.putExtra("roomList",roomList);
         intent.putExtra("reserveInfo",info);
         startActivity(intent);
+
+//        ReserveInfo info = new ReserveInfo();
+//        info.setTopic("");
+//        ArrayList<Room> roomList = new ArrayList<Room>();
+//        Room aa = new Room();
+//        aa.setRoom("0830");
+//        aa.setSizeMax(9);
+//        aa.setSizeMin(5);
+//        aa.setFloor(8);
+//        Room bb = new Room();
+//        bb.setRoom("1022");
+//        bb.setSizeMax(9);
+//        bb.setSizeMin(5);
+//        bb.setFloor(10);
+//        Room cc = new Room();
+//        cc.setRoom("กกกกกกกก");
+//        cc.setSizeMax(9);
+//        cc.setSizeMin(5);
+//        cc.setFloor(0);
+//        Room dd = new Room();
+//        dd.setRoom("0209");
+//        dd.setSizeMax(9);
+//        dd.setSizeMin(5);
+//        dd.setFloor(2);
+//        roomList.add(aa);
+//        roomList.add(bb);
+//        roomList.add(cc);
+//        roomList.add(dd);
+
+//        Intent intent = new Intent(ReserveActivity.this,ReserveListActivity.class);
+//        intent.putExtra("roomList",roomList);
+//        intent.putExtra("reserveInfo",info);
+//        startActivity(intent);
     }
 
     private String bowlingJson(RoomReq roomReq) {
@@ -310,7 +360,8 @@ public class ReserveActivity extends AppCompatActivity {
     private String callSlotAvailable(String json) {
         try {
             DownloadTask task = new DownloadTask();
-            task.setUrl("http://10.215.101.76:5000/slot/view");
+            //task.setUrl("http://10.215.101.76:5000/slot/view");
+            task.setUrl(Constant.SERVICE_SLOT_VIEW);
             task.setJson(json);
             String result = task.execute().get();
             return result;

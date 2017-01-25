@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.myapplication.config.Constant;
 import com.example.myapplication.model.LoginRes;
 import com.example.myapplication.util.TokenUtil;
 import com.google.gson.Gson;
@@ -73,6 +74,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void doLogin(View view){
+//        Toast.makeText(getApplicationContext(), "Meeting room not found", Toast.LENGTH_LONG).show();  // test
 //        Intent intent = new Intent(this,CenterpointActivity.class); // test
 //        startActivity(intent);
 
@@ -107,7 +109,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 	private String callLogin(String user, String password){
         try {
             DownloadTask task = new DownloadTask();
-            task.setUrl("http://10.215.101.76:5000/user/login");
+            //task.setUrl("http://10.215.101.76:5000/user/login");
+            task.setUrl(Constant.SERVICE_USER_LOGIN);
             Map<String, String> login = new HashMap<>();
             login.put("token", "");
             login.put("name", user);

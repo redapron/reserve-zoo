@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.myapplication.config.Constant;
 import com.example.myapplication.model.CancelRoomReq;
 import com.example.myapplication.model.LoginRes;
 import com.example.myapplication.model.ReserveInfo;
@@ -186,7 +187,8 @@ public class CancelActivity extends AppCompatActivity {
     private String callSlotAvailable(String json) {
         try {
             DownloadTask task = new DownloadTask();
-            task.setUrl("http://10.215.101.76:5000/slot/view");
+            //task.setUrl("http://10.215.101.76:5000/slot/view");
+            task.setUrl(Constant.SERVICE_SLOT_VIEW);
             task.setJson(json);
             String result = task.execute().get();
             return result;
