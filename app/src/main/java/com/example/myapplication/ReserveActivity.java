@@ -290,7 +290,7 @@ public class ReserveActivity extends AppCompatActivity {
 
         ReserveInfo info = new ReserveInfo();
         info.setTopic(topicStr);
-        info.setUserIdMeeting(userIdMeeting.getText().toString());
+        info.setUserIdMeeting(userIdMeetingStr);
         info.setUserPhoneMeeting(userPhoneMeetingStr);
         info.setDateMeeting(dateMeetingStr);
         info.setTimeStart(startTimeStr);
