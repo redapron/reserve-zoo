@@ -281,7 +281,7 @@ public class ReserveActivity extends AppCompatActivity {
                 } else if (o1.getFloor() < o2.getFloor()){
                     return 1;
                 } else {
-                    return 0;
+                    return o1.getRoom().compareTo(o2.getRoom());
                 }
             }
         });
