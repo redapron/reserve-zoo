@@ -185,12 +185,13 @@ public class ReserveActivity extends AppCompatActivity {
         EditText userPhoneMeeting = (EditText) findViewById(R.id.userPhoneMeeting);
 
 
-        String dateMeetingStr = dateMeeting.getText().toString();
-        String startTimeStr = startTime.getText().toString();
-        String endTimeStr = endTime.getText().toString();
-        String memberStr = member.getText().toString();
+        String dateMeetingStr = dateMeeting.getText().toString().trim();
+        String startTimeStr = startTime.getText().toString().trim();
+        String endTimeStr = endTime.getText().toString().trim();
+        String memberStr = member.getText().toString().trim();
         String topicStr = topic.getText().toString().trim();
         String userIdMeetingStr = userIdMeeting.getText().toString().trim();
+        String userPhoneMeetingStr = userPhoneMeeting.getText().toString().trim();
 
 
         if(memberStr.isEmpty() || userIdMeetingStr.isEmpty()){
@@ -205,8 +206,8 @@ public class ReserveActivity extends AppCompatActivity {
         roomReq.setFrom(StringUtil.formatDatTime(dateMeetingStr, startTimeStr)); // real
         roomReq.setTo(StringUtil.formatDatTime(dateMeetingStr, endTimeStr)); // real
 
-        System.out.println("roomReq.getFrom() = "+roomReq.getFrom());
-        System.out.println("roomReq.getTo() = "+roomReq.getTo());
+//        System.out.println("roomReq.getFrom() = "+roomReq.getFrom());
+//        System.out.println("roomReq.getTo() = "+roomReq.getTo());
         //roomReq.setFrom("20170120 090000"); // test
         //roomReq.setTo("20170120 103000"); // test
 
@@ -268,6 +269,7 @@ public class ReserveActivity extends AppCompatActivity {
                 room.setHasProjector(item.isHasProjector());
                 room.setHasVC(item.isHasVC());
                 room.setHasWB(item.isHasWB());
+                room.setFloor(item.getFloor());
                 roomList.add(room);
             }
         }
@@ -287,12 +289,12 @@ public class ReserveActivity extends AppCompatActivity {
         });
 
         ReserveInfo info = new ReserveInfo();
-        info.setTopic(topic.getText().toString());
+        info.setTopic(topicStr);
         info.setUserIdMeeting(userIdMeeting.getText().toString());
-        info.setUserPhoneMeeting(userPhoneMeeting.getText().toString());
-        info.setDateMeeting(dateMeetingStr.trim());
-        info.setTimeStart(startTimeStr.trim());
-        info.setTimeEnd(endTimeStr.trim());
+        info.setUserPhoneMeeting(userPhoneMeetingStr);
+        info.setDateMeeting(dateMeetingStr);
+        info.setTimeStart(startTimeStr);
+        info.setTimeEnd(endTimeStr);
 
         //AppContext.getInstance().setRoomList(roomList);
 
@@ -324,11 +326,31 @@ public class ReserveActivity extends AppCompatActivity {
 //        dd.setSizeMax(9);
 //        dd.setSizeMin(5);
 //        dd.setFloor(2);
+//        Room ee = new Room();
+//        ee.setRoom("0207");
+//        ee.setSizeMax(9);
+//        ee.setSizeMin(5);
+//        ee.setFloor(2);
 //        roomList.add(aa);
 //        roomList.add(bb);
 //        roomList.add(cc);
 //        roomList.add(dd);
-
+//        roomList.add(ee);
+//
+//        // sort room
+//        Collections.sort(roomList, new Comparator<Room>() {
+//            @Override
+//            public int compare(Room o1, Room o2) {
+//                if(o1.getFloor() > o2.getFloor()){
+//                    return -1;
+//                } else if (o1.getFloor() < o2.getFloor()){
+//                    return 1;
+//                } else {
+//                    return o1.getRoom().compareTo(o2.getRoom());
+//                }
+//            }
+//        });
+//
 //        Intent intent = new Intent(ReserveActivity.this,ReserveListActivity.class);
 //        intent.putExtra("roomList",roomList);
 //        intent.putExtra("reserveInfo",info);

@@ -76,10 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void doLogin(View view){
 //        Toast.makeText(getApplicationContext(), "Meeting room not found", Toast.LENGTH_LONG).show();  // test
 //        Intent intent = new Intent(this,CenterpointActivity.class); // test
-//        startActivity(intent);
-
-        //String user = "Android3";  // test
-        //String pass = "66y41168j";  // test
+//        startActivity(intent); // test
 
         EditText userBox = (EditText) findViewById(R.id.userBox);
         EditText passwordBox = (EditText) findViewById(R.id.passwordBox);
@@ -94,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Gson gson = new Gson();
         Type founderType = new TypeToken<LoginRes>(){}.getType();
-            LoginRes loginRes = gson.fromJson(loginResult, founderType);
+        LoginRes loginRes = gson.fromJson(loginResult, founderType);
             if(loginRes != null && loginRes.getToken()!= null){
                 TokenUtil.saveToken(loginRes.getToken(),getApplicationContext());
                 TokenUtil.saveUser(user,getApplicationContext());
