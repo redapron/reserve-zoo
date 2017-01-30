@@ -26,7 +26,9 @@
         <activity android:name=".CancelListActivity" />
         <activity android:name=".CancelDetailActivity" />
         <activity android:name=".ReserveListActivity" />
-        <activity android:name=".ReserveListDetailActivity"></activity>
+        <activity android:name=".ReserveListDetailActivity" />
+        <activity android:name=".ShowActivity" />
+        <activity android:name=".ShowListActivity"></activity>
     </application>
 
 </manifest>

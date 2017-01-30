@@ -21,18 +21,21 @@ public class CenterpointActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void cancelAction(View view){
+        Intent intent = new Intent(this,CancelActivity.class);
+        startActivity(intent);
+    }
+
+    public void showAction(View view){
+        Intent intent = new Intent(this,ShowActivity.class);
+        startActivity(intent);
+    }
+
     public void doLogout(View view){
         TokenUtil.saveToken("", getApplicationContext());
         TokenUtil.saveUser("", getApplicationContext());
         Toast.makeText(getApplicationContext(), "Logout Done", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this,MainActivity.class);
-        startActivity(intent);
-    }
-
-    public void cancelAction(View view){
-        Intent intent = new Intent(this,CancelActivity.class);
-        intent.putExtra("name3","xxx");
-        intent.putExtra("name4","yyy");
         startActivity(intent);
     }
 }

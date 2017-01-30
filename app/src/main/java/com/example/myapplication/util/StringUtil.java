@@ -2,6 +2,9 @@ package com.example.myapplication.util;
 
 import android.util.Log;
 
+import java.util.Iterator;
+import java.util.Map;
+
 public class StringUtil {
     public static String pad(int c) {
         if (c >= 10)
@@ -47,6 +50,18 @@ public class StringUtil {
             return time;
         }
         return "";
+    }
+
+    public static String makeJson(Map<String,String> m) {
+        Iterator<Map.Entry<String, String>> it = m.entrySet().iterator();
+        String rtn = "{";
+        while (it.hasNext()) {
+            Map.Entry<String, String> pair =  it.next();
+            rtn += String.format("'%s': '%s', ", pair.getKey(), pair.getValue());
+        }
+        rtn += "}";
+        Log.i("makeJson", rtn);
+        return rtn;
     }
 
     public static void main(String[] arg ){

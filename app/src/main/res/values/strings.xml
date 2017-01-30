@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">Reserve Meeting Room</string>
+    <string name="app_name">Meeting Room Reservation</string>
     <string name="title_activity_centerpoint">CenterpointActivity</string>
 </resources>

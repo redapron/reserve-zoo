@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.example.myapplication.config.Constant;
 import com.example.myapplication.model.LoginRes;
+import com.example.myapplication.util.StringUtil;
 import com.example.myapplication.util.TokenUtil;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -83,8 +84,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String user = userBox.getText().toString().trim();
         String pass = passwordBox.getText().toString().trim();
 
-//        user = "Android3";  // test
-//        pass = "66y41168j";  // test
+        user = "Android3";  // test
+        pass = "66y41168j";  // test
 
         String loginResult = callLogin(user ,pass);
         System.out.println("loginResult = "+loginResult);
@@ -106,13 +107,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 	private String callLogin(String user, String password){
         try {
             DownloadTask task = new DownloadTask();
-            //task.setUrl("http://10.215.101.76:5000/user/login");
             task.setUrl(Constant.SERVICE_USER_LOGIN);
             Map<String, String> login = new HashMap<>();
             login.put("token", "");
             login.put("name", user);
             login.put("pass", password);
-            task.setJson(makeJson(login));
+            task.setJson(StringUtil.makeJson(login));
             return task.execute().get();
         } catch (InterruptedException e){
             e.printStackTrace();
@@ -121,14 +121,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             e.printStackTrace();
             return null;
         }
-    }
-	
-	public String bowlingJson(String name, String password) {
-        return "{"
-                + "'token' : '' ,"
-                + "'name':'" + name + "',"
-                + "'pass':'" + password + "',"
-                + "}";
     }
 
     public void doLogout(View view){
@@ -139,15 +131,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(intent);
     }
 
-    public String makeJson(Map<String,String> m) {
-        Iterator<Map.Entry<String, String>> it = m.entrySet().iterator();
-        String rtn = "{";
-        while (it.hasNext()) {
-            Map.Entry<String, String> pair =  it.next();
-            rtn += String.format("'%s': '%s', ", pair.getKey(), pair.getValue());
-        }
-        rtn += "}";
-        Log.i("bui", "rtn: " +rtn);
-        return rtn;
+    public void showAction(View view){
+        Intent intent = new Intent(this,ShowActivity.class);
+        startActivity(intent);
     }
 }

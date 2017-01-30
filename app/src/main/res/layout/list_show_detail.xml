@@ -9,12 +9,12 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <TextView
-            android:id="@+id/listCancelDate"
+            android:id="@+id/listShowDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="17/01/2017"/>
         <TextView
-            android:id="@+id/listCancelTime"
+            android:id="@+id/listShowTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="15:30 - 16:00"/>
@@ -35,7 +35,7 @@
                 android:text="ห้อง : "/>
             
             <TextView
-                android:id="@+id/listCancelRoom"
+                android:id="@+id/listShowRoom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="0802"/>
@@ -51,7 +51,7 @@
                 android:text="เรื่องการประชุม : "/>
 
             <TextView
-                android:id="@+id/listCancelNote"
+                android:id="@+id/listShowNote"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="การเรียน Mobile"/>
@@ -67,7 +67,7 @@
                 android:text="ชื่อผู้ใช้ห้องประชุม : "/>
 
             <TextView
-                android:id="@+id/listCancelForName"
+                android:id="@+id/listShowForName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="วราภา"/>
@@ -83,7 +83,7 @@
                 android:text="เบอร์ผู้ใช้ : "/>
 
             <TextView
-                android:id="@+id/listCancelForPhone"
+                android:id="@+id/listShowForPhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="------"/>
@@ -99,7 +99,7 @@
                 android:text="ชื่อผู้จอง : "/>
 
             <TextView
-                android:id="@+id/listCancelUserName"
+                android:id="@+id/listShowUserName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="------"/>
@@ -115,7 +115,7 @@
                 android:text="เบอร์ผู้จอง : "/>
 
             <TextView
-                android:id="@+id/listCancelUserPhone"
+                android:id="@+id/listShowUserPhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="------"/>
