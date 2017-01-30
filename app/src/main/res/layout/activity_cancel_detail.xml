@@ -22,9 +22,9 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:layout_width="80dp"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:text="Date : "/>
+            android:text="วันที่ประชุม : "/>
 
         <TextView
             android:id="@+id/cancelDetailDate"
@@ -38,9 +38,9 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:layout_width="80dp"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:text="Time : "/>
+            android:text="เวลา : "/>
 
         <TextView
             android:id="@+id/cancelDetailTime"
@@ -54,9 +54,9 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:layout_width="80dp"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:text="Room : "/>
+            android:text="ห้อง : "/>
 
         <TextView
             android:id="@+id/cancelDetailRoom"
@@ -70,7 +70,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:layout_width="80dp"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:text="เรื่องการประชุม : "/>
 
@@ -86,7 +86,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:layout_width="80dp"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:text="ชื่อผู้ใช้ห้องประชุม : "/>
 
@@ -102,7 +102,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:layout_width="80dp"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:text="เบอร์ผู้ใช้ : "/>
 
@@ -118,7 +118,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:layout_width="80dp"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:text="ชื่อผู้จอง : "/>
 
@@ -134,7 +134,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:layout_width="80dp"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:text="เบอร์ผู้จอง : "/>
 

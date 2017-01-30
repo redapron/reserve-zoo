@@ -23,12 +23,12 @@
             android:id="@+id/textViewDateHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="DATE"/>
+            android:text="วันที่ประชุม"/>
         <TextView
             android:id="@+id/textViewTimeHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TIME"/>
+            android:text="เวลา"/>
         <ListView
             android:id="@+id/listViewSearchResult"
             android:layout_width="wrap_content"

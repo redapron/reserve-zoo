@@ -27,12 +27,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="*Date: "/>
+                android:text="*วันที่ประชุม: "/>
             <TextView
                 android:id="@+id/dateMeeting"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:width="150sp"
+                android:width="110sp"
                 android:text="DD/MM/YYYY"/>
             <Button
                 android:id="@+id/buttonDateMeeting"
@@ -48,12 +48,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="*Start time: "/>
+                android:text="*เวลาเริ่มต้น: "/>
             <TextView
                 android:id="@+id/startTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:width="115sp"
+                android:width="110sp"
                 android:text="00:00"/>
             <Button
                 android:id="@+id/buttonTimeStart"
@@ -69,12 +69,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="*End time: "/>
+                android:text="*เวลาสิ้นสุด: "/>
             <TextView
                 android:id="@+id/endTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:width="120sp"
+                android:width="110sp"
                 android:text="00:00"/>
             <Button
                 android:id="@+id/buttonTimeEnd"

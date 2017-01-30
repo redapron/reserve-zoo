@@ -84,8 +84,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String user = userBox.getText().toString().trim();
         String pass = passwordBox.getText().toString().trim();
 
-        user = "Android3";  // test
-        pass = "66y41168j";  // test
+//        user = "Android3";  // test
+//        pass = "66y41168j";  // test
 
         String loginResult = callLogin(user ,pass);
         System.out.println("loginResult = "+loginResult);
