@@ -121,6 +121,10 @@ public class CancelActivity extends AppCompatActivity {
         Log.i("bui", "json: " + json);
 
         String availableRoom = callSlotAvailable(json);
+        if(availableRoom==null){
+            Toast.makeText(getApplicationContext(), "Cannot connect to server, Please try again.", Toast.LENGTH_LONG).show();
+            return;
+        }
         RoomRes res = gson.fromJson(availableRoom, RoomRes.class);
         TokenUtil.saveToken(res.getToken(), getApplicationContext());
 

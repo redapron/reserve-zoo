@@ -73,6 +73,10 @@ public class  CancelDetailActivity extends AppCompatActivity {
         Log.i("bui", "doSearchCancel json: " + json);
 
         String cancelResult = callDelete(json);
+        if(cancelResult==null){
+            Toast.makeText(getApplicationContext(), "Cannot connect to server, Please try again.", Toast.LENGTH_LONG).show();
+            return;
+        }
         Log.i("bui", "cancel result: " + cancelResult);
 
         Type founderType = new TypeToken<LoginRes>(){}.getType();

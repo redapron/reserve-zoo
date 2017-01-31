@@ -106,6 +106,10 @@ public class ShowActivity extends AppCompatActivity {
         String json = StringUtil.makeJson(reqx);
 
         String availableRoom = callSlotAvailable(json);
+        if(availableRoom==null){
+            Toast.makeText(getApplicationContext(), "Cannot connect to server, Please try again.", Toast.LENGTH_LONG).show();
+            return;
+        }
         System.out.println("availableRoom = "+availableRoom);
 
         Gson gson = new Gson();

@@ -88,6 +88,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        pass = "66y41168j";  // test
 
         String loginResult = callLogin(user ,pass);
+        if(loginResult==null){
+            Toast.makeText(getApplicationContext(), "Cannot connect to server, Please try again.", Toast.LENGTH_LONG).show();
+            return;
+        }
         System.out.println("loginResult = "+loginResult);
 
         Gson gson = new Gson();

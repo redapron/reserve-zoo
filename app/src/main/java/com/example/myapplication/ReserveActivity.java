@@ -6,6 +6,7 @@ import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -29,11 +30,15 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class ReserveActivity extends AppCompatActivity {
 
@@ -193,8 +198,39 @@ public class ReserveActivity extends AppCompatActivity {
         String userPhoneMeetingStr = userPhoneMeeting.getText().toString().trim();
 
 
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            Date selectDate = formatter.parse(dateMeetingStr);
+            Date currentDate = formatter.parse(formatter.format(new Date()));
+
+            long diff = selectDate.getTime() - currentDate.getTime();
+            if (diff >= 90) {
+                Toast.makeText(getApplicationContext(), "โปรดเลือก วันที่ประชุม ล่วงหน้าไม่เกิน 90 วัน", Toast.LENGTH_LONG).show();
+                return;
+            } else if (diff < 0) {
+                Toast.makeText(getApplicationContext(), "โปรดเลือก วันที่ประชุม มากกว่าหรือเท่ากับ วันที่ปัจจุบัน", Toast.LENGTH_LONG).show();
+                return;
+            }
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        SimpleDateFormat formatter2 = new SimpleDateFormat("yyyyMMdd HHmmss");
+        try {
+            Date _startTime = formatter2.parse(StringUtil.formatDatTime(dateMeetingStr, startTimeStr));
+            Date _endTime = formatter2.parse(StringUtil.formatDatTime(dateMeetingStr, endTimeStr));
+
+            if(_endTime.before(_startTime) || _endTime.equals(_startTime)){
+                Toast.makeText(getApplicationContext(), "โปรดเลือก เวลาสิ้นสุด มากกว่า เวลาเริ่มต้น", Toast.LENGTH_LONG).show();
+                return;
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
         if(memberStr.isEmpty() || userIdMeetingStr.isEmpty()){
-            Toast.makeText(getApplicationContext(), "Please fill all *", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Please fill all *", Toast.LENGTH_LONG).show();
             return;
         }
 
@@ -231,6 +267,10 @@ public class ReserveActivity extends AppCompatActivity {
         String availableRoom = callSlotAvailable(json);
         System.out.println("availableRoom = "+availableRoom);
 
+        if(availableRoom==null){
+            Toast.makeText(getApplicationContext(), "Cannot connect to server, Please try again.", Toast.LENGTH_LONG).show();
+            return;
+        }
         //String jsonInString = "{\"token\":\"mkyong\",\"error\":7500,\"slots\":[{\"roomName\": \"0803\",\"sizeMax\":7},{\"roomName\": \"0814\",\"sizeMax\":9}]}";
         //Type founderType = new TypeToken<LoginRes>(){}.getType();
         //LoginRes loginRes = gson.fromJson(jsonInString, founderType);

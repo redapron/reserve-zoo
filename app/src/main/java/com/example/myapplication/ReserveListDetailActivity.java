@@ -69,6 +69,10 @@ public class ReserveListDetailActivity extends AppCompatActivity {
         System.out.println("json = "+json);
 
         String makeResponse = callSlotMake(json);
+        if(makeResponse==null){
+            Toast.makeText(getApplicationContext(), "Cannot connect to server, Please try again.", Toast.LENGTH_LONG).show();
+            return;
+        }
         System.out.println("makeResponse = "+makeResponse);
 
         Type founderType = new TypeToken<LoginRes>(){}.getType();
