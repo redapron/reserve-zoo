@@ -18,7 +18,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="*วันที่ระชุม: "/>
+            android:text="*วันที่ประชุม: "/>
         <TextView
             android:id="@+id/dateCancel"
             android:layout_width="wrap_content"
