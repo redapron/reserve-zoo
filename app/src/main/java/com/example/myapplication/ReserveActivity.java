@@ -24,7 +24,6 @@ import com.example.myapplication.model.RoomReq;
 import com.example.myapplication.model.RoomRes;
 import com.example.myapplication.util.StringUtil;
 import com.example.myapplication.util.TokenUtil;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
