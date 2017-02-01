@@ -204,10 +204,11 @@ public class ReserveActivity extends AppCompatActivity {
             Date currentDate = formatter.parse(formatter.format(new Date()));
 
             long diff = selectDate.getTime() - currentDate.getTime();
-            if (diff >= 90) {
+            long duration = TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
+            if (duration >= 90) {
                 Toast.makeText(getApplicationContext(), "โปรดเลือก วันที่ประชุม ล่วงหน้าไม่เกิน 90 วัน", Toast.LENGTH_LONG).show();
                 return;
-            } else if (diff < 0) {
+            } else if (duration < 0) {
                 Toast.makeText(getApplicationContext(), "โปรดเลือก วันที่ประชุม มากกว่าหรือเท่ากับ วันที่ปัจจุบัน", Toast.LENGTH_LONG).show();
                 return;
             }
