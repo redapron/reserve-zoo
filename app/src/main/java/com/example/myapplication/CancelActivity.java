@@ -28,10 +28,13 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -107,7 +110,25 @@ public class CancelActivity extends AppCompatActivity {
     };
 
     public void doSearchCancel(View view) {
-        String date = textViewDateCancel.getText().toString();
+        String date = textViewDateCancel.getText().toString().trim();
+
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            Date selectDate = formatter.parse(date);
+            Date currentDate = formatter.parse(formatter.format(new Date()));
+
+            long diff = selectDate.getTime() - currentDate.getTime();
+            if (diff >= 90) {
+                Toast.makeText(getApplicationContext(), "โปรดเลือก วันที่ประชุม ล่วงหน้าไม่เกิน 90 วัน", Toast.LENGTH_LONG).show();
+                return;
+            } else if (diff < 0) {
+                Toast.makeText(getApplicationContext(), "โปรดเลือก วันที่ประชุม มากกว่าหรือเท่ากับ วันที่ปัจจุบัน", Toast.LENGTH_LONG).show();
+                return;
+            }
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
         CancelRoomReq req = new CancelRoomReq();
         req.setToken(TokenUtil.getToken(getApplicationContext()));
