@@ -38,6 +38,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         System.out.println("lastToken = "+lastToken);
         if(lastToken.isEmpty()){
             setContentView(R.layout.activity_main);
+            String lastLogin = TokenUtil.getUser(getApplicationContext());
+            if(!lastLogin.isEmpty()){
+                EditText userBox = (EditText) findViewById(R.id.userBox);
+                userBox.setText(lastLogin);
+            }
         } else {
             setContentView(R.layout.activity_centerpoints);
             btnReserve = (Button) findViewById(R.id.reserveButton);
@@ -66,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         if (v == btnLogout){
             TokenUtil.saveToken("", getApplicationContext());
-            TokenUtil.saveUser("", getApplicationContext());
+            //TokenUtil.saveUser("", getApplicationContext());
             Toast.makeText(getApplicationContext(), "Logout Done", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(MainActivity.this,MainActivity.class);
             startActivity(intent);
@@ -129,7 +134,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void doLogout(View view){
         TokenUtil.saveToken("", getApplicationContext());
-        TokenUtil.saveUser("", getApplicationContext());
+        //TokenUtil.saveUser("", getApplicationContext());
         Toast.makeText(getApplicationContext(), "Logout Done", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);

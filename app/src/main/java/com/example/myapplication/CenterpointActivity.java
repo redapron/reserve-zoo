@@ -33,7 +33,7 @@ public class CenterpointActivity extends AppCompatActivity {
 
     public void doLogout(View view){
         TokenUtil.saveToken("", getApplicationContext());
-        TokenUtil.saveUser("", getApplicationContext());
+        //TokenUtil.saveUser("", getApplicationContext());
         Toast.makeText(getApplicationContext(), "Logout Done", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);
